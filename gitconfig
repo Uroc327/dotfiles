@@ -2,3 +2,23 @@
 	name = Constantin Runge
 	username = Uroc327
 	email = c.runge@cssbook.de
+[rerere]
+	enabled = true
+[difftool]
+	prompt = false
+[alias]
+	unstash = stash pop
+	difft = difftool
+	undo-hard = reset --hard HEAD^
+	rprune = remote prune
+	co = checkout
+	cl = clone
+	m = merge
+	pu = pull
+	f = fetch
+	fo = fetch origin
+	br = branch
+	brs = branch -va
+	gcprune = gc --aggressive --prune=now
+	resetwd = checkout -f
+	root = rev-parse --show-toplevel
