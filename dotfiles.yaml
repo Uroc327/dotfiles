@@ -4,6 +4,9 @@
     ~/.bash_logout: bash_logout
     ~/.bash_profile: bash_profile
     ~/.bashrc: bashrc
+    ~/.gitconfig: gitconfig
+    ~/.i3: i3/
     ~/.ssh: ssh/
+    ~/.zshrc: zshrc
     ~/.xinitrc: xinitrc
 
