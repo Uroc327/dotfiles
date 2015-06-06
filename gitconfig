@@ -8,7 +8,7 @@
 	prompt = false
 [alias]
 	unstash = stash pop
-	difft = difftool
+	dt = difftool
 	undo-hard = reset --hard HEAD^
 	rprune = remote prune
 	co = checkout
@@ -22,3 +22,6 @@
 	gcprune = gc --aggressive --prune=now
 	resetwd = checkout -f
 	root = rev-parse --show-toplevel
+	d = diff
+[push]
+	default = tracking
