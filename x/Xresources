@@ -1,7 +1,34 @@
+
+! black
+*color0:  black
+*color8:  grey95
+! red
+*color1:  red3
+*color9:  red
+! green
+*color2:  green3
+*color10: green
+! yellow
+*color3:  yellow3
+*color11: yellow
+! blue
+*color4:  blue2
+*color12: blue
+! magenta
+*color5:  magenta3
+*color13: magenta
+! cyan
+*color6:  cyan3
+*color14: cyan
+! white
+*color7:  gray90
+*color15: white
+
 Xft*dpi:       100
 Xft*antialias: True
 Xft*hinting:   Full
 
+URxvt.saveLines:       65535
 URxvt.scrollBar:       False
 URxvt.perl-ext-common: default,clipboard,matcher,keyboard-select
 URxvt.keysym.M-u:      perl:url-select:select_next
@@ -13,3 +40,4 @@ URxvt.keysym.M-s:      perl:keyboard-select:search
 URxvt.keysym.M-c:      perl:clipboard:copy
 URxvt.keysym.M-p:      perl:clipboard:paste
 URxvt.keysym.M-C-p:    perl:clipboard:paste_escaped
+
