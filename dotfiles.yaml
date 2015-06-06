@@ -1,13 +1,13 @@
 - clean: ['~']
 
 - link:
-    ~/.bash_logout: bash/bash_logout
-    ~/.bash_profile: bash/bash_profile
-    ~/.bashrc: bash/bashrc
-    ~/.gitconfig: gitconfig
-    ~/.i3: i3/
+    ~/.bash_logout: shells/bash/bash_logout
+    ~/.bash_profile: shells/bash/bash_profile
+    ~/.bashrc: shells/bash/bashrc
+    ~/.gitconfig: shells/gitconfig
+    ~/.i3: x/i3/
     ~/.ssh: ssh/
-    ~/.zshrc: zshrc
-    ~/.xinitrc: xinitrc
-    ~/.Xresources: Xresources
+    ~/.zshrc: x/zshrc
+    ~/.xinitrc: x/xinitrc
+    ~/.Xresources: x/Xresources
 
