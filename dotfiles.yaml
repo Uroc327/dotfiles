@@ -11,3 +11,7 @@
     ~/.xinitrc: x/xinitrc
     ~/.Xresources: x/Xresources
 
+- shell:
+  - [ etc/sync.sh ]
+  - [ root/sync.sh ]
+

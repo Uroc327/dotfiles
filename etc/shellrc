@@ -1,0 +1,68 @@
+alias l='ls -CFahl'
+alias .-='cd - > /dev/null'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../../'
+alias ......='cd ../../../../../'
+alias .......='cd ../../../../../../'
+alias ........='cd ../../../../../../../'
+alias .........='cd ../../../../../../../../'
+alias .-l='cd - > /dev/null; l'
+alias ..l='cdl ..'
+alias ...l='cdl ../..'
+alias ....l='cdl ../../..'
+alias .....l='cdl ../../../../'
+alias ......l='cdl ../../../../../'
+alias .......l='cdl ../../../../../../'
+alias ........l='cdl ../../../../../../../'
+alias .........l='cdl ../../../../../../../../'
+alias mf='touch'
+alias md='mkdir -p'
+#alias +x='chmod +x'
+alias c='cat'
+alias g='grep'
+alias p="${PAGER}"
+alias d='diff'
+alias vd='vimdiff'
+alias dm='dmesg'
+alias mk='make'
+alias mkv='make vi'
+alias mkd='make distclean'
+alias gitka='gitk --all'
+
+function mx()
+{
+	mf "$@"
+	chmod +x "$@"
+}
+
+function mcd()
+{
+	if [ $# -ge 2 ] ; then
+		echo "too much arguments" >&2
+		return
+	fi
+
+	md "$1"
+	cd "$1"
+}
+
+function cdl()
+{
+	cd "$@"
+	l
+}
+
+function viv()
+{
+	vi "$(which $@)"
+}
+
+function bak()
+{
+	for f in "$@" ; do
+		cp "$f" "${f}.bak$(date +%Y%m%d%H%M%S)"
+	done
+}
+
