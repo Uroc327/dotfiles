@@ -9,4 +9,5 @@
     ~/.ssh: ssh/
     ~/.zshrc: zshrc
     ~/.xinitrc: xinitrc
+    ~/.Xresources: Xresources
 
