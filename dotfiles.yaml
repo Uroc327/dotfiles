@@ -4,13 +4,14 @@
     ~/.bash_logout: shells/bash/bash_logout
     ~/.bash_profile: shells/bash/bash_profile
     ~/.bashrc: shells/bash/bashrc
-    ~/.gitconfig: shells/gitconfig
-    ~/.i3: x/i3/
+    ~/.shellrc: shells/shellrc
+    ~/.zshrc: shells/zshrc
+    ~/.gitconfig: gitconfig
     ~/.ssh: ssh/
     ~/.vim: vim/
     ~/.vimrc: vimrc
     ~/.gvimrc: gvimrc
-    ~/.zshrc: x/zshrc
+    ~/.i3: x/i3/
     ~/.xinitrc: x/xinitrc
     ~/.Xresources: x/Xresources
 
