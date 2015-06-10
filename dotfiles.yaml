@@ -7,6 +7,9 @@
     ~/.gitconfig: shells/gitconfig
     ~/.i3: x/i3/
     ~/.ssh: ssh/
+    ~/.vim: vim/
+    ~/.vimrc: vimrc
+    ~/.gvimrc: gvimrc
     ~/.zshrc: x/zshrc
     ~/.xinitrc: x/xinitrc
     ~/.Xresources: x/Xresources
