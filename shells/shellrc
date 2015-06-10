@@ -1,0 +1,3 @@
+
+eval $(keychain --eval -q ~/.ssh/uroc_cssbook_rsa ~/.ssh/uroc_gmail_rsa)
+
