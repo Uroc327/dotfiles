@@ -25,3 +25,5 @@
 	d = diff
 [push]
 	default = tracking
+[color]
+	ui = auto
