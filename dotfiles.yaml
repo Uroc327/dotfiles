@@ -1,21 +1,36 @@
-- clean: ['~']
 
-- link:
+modules:
+  shell:
+    ~/.shellrc: shells/shellrc
+
+  bash:
     ~/.bash_logout: shells/bash/bash_logout
     ~/.bash_profile: shells/bash/bash_profile
     ~/.bashrc: shells/bash/bashrc
-    ~/.shellrc: shells/shellrc
+    requires:
+      - shell
+
+  zsh:
     ~/.zshrc: shells/zshrc
-    ~/.gitconfig: gitconfig
+    requires:
+      - shell
+
+  ssh:
     ~/.ssh: ssh/
+
+  vim:
     ~/.vim: vim/
     ~/.vimrc: vimrc
     ~/.gvimrc: gvimrc
-    ~/.i3: x/i3/
+
+  x:
     ~/.xinitrc: x/xinitrc
     ~/.Xresources: x/Xresources
 
-- shell:
-  - [ etc/sync.sh ]
-  - [ root/sync.sh ]
+  i3:
+    ~/.i3: x/i3/
+
+scripts:
+  - etc/sync.sh
+  - root/sync.sh
 
