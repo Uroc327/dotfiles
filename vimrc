@@ -5,7 +5,7 @@ if exists('s:loaded_vimrc')
 endif
 let s:loaded_vimrc = 1
 
-"source ~/.vim/plugins.vim
+source ~/.vim/plugins.vim
 source ~/.vim/options.vim
 source ~/.vim/plugin_options.vim
 source ~/.vim/statusline.vim

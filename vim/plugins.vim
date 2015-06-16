@@ -1,8 +1,9 @@
+" vim: set et sw=2:
 
 set nocompatible
 filetype off
 
-set rtp=~/.vim/bundle/Vundle.vim/
+set runtimepath+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
 " Vundle
@@ -15,7 +16,7 @@ Plugin 'AndrewRadev/linediff.vim'
 "Plugin 'tpope/vim-dispatch'
 
 " Git
-Plugin 'taq/vim-git-branch-info'
+"Plugin 'taq/vim-git-branch-info'
 Plugin 'tpope/vim-git'
 Plugin 'tpope/vim-fugitive'
 
@@ -26,6 +27,7 @@ Plugin 'Raimondi/delimitMate'
 "Plugin 'dhruvasagar/vim-table-mode'
 "Plugin 'triglav/vim-visual-increment'
 Plugin 'bkad/CamelCaseMotion'
+"Plugin 'bronson/vim-visual-star-search'
 
 " Browsing
 Plugin 'jlanzarotta/bufexplorer'
