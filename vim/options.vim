@@ -41,10 +41,10 @@ set visualbell t_vb=
 set wildmenu
 set nowrap
 
-au BufRead,BufNewFile *.c,*.cpp,*.h runtime ftplugin/man.vim
-au BufReadPost,VimEnter *.h normal! zR
+autocmd FileType c,cpp,sh,bash,zsh runtime ftplugin/man.vim
+autocmd BufReadPost,VimEnter *.h normal! zR
 
-au StdinReadPost * set buftype=nofile
+autocmd StdinReadPost * set buftype=nofile
 
 let mapleader = ","
 

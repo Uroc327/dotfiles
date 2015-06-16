@@ -58,8 +58,9 @@ cabbrev Qqa qa!
 cabbrev QQa qa!
 
 map <silent> <F1> :call <SID>StripTrailingWhitespaces()<CR>
-autocmd BufRead,BufNewFile *.c,*.cpp,*.h  map <silent> <F6> :exe "Man" 3 expand('<cword>')<CR>
-autocmd BufRead,BufNewFile *.vim          map <silent> <F6> :exe "h" expand('<cword>')<CR>
+autocmd FileType c,cpp       map <silent> <F6> :exe "Man" 3 expand('<cword>')<CR>
+autocmd FileType sh,bash,zsh map <silent> <F6> :exe "Man" 1 expand('<cword>')<CR>
+autocmd FileType vim         map <silent> <F6> :exe "h" expand('<cword>')<CR>
 map <silent> <F7> :copen<CR>
 map <silent> <F12> :call <SID>PrintSynStack()<CR>
 
@@ -89,4 +90,7 @@ map <silent> <Leader>/ :let @/ = ""<CR>
 
 " highlight current search match
 nmap <silent> <Leader><Leader>n :call <SID>BlinkMatch(0.4)<CR>
+
+" don't jump when using *
+nnoremap <silent> * :let windict=winsaveview()<CR>*:call winrestview(windict)<CR>:unlet windict
 

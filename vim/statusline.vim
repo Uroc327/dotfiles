@@ -70,5 +70,5 @@ set statusline+=%{StatuslineFileFormatEncoding()}
 set statusline+=%{StatuslineTrailingSpace()}
 set statusline+=%{StatuslineIndentTabSpace()}
 set statusline+=%=
-set statusline+=%L\ /\ %P
+set statusline+=%P\ /\ %L
 
