@@ -33,3 +33,5 @@ let g:UltiSnipsEditSplit = 'vertical'
 
 " Uroc327/vim-numbertoggle
 
+" openscad.vim
+

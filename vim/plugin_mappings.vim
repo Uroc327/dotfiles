@@ -38,3 +38,5 @@ let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
 " Uroc327/vim-numbertoggle
 let g:NumberToggleTrigger = '<Leader>n'
 
+" openscad.vim
+

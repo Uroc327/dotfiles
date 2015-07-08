@@ -51,5 +51,8 @@ Plugin 'Uroc327/vim-numbertoggle'
 " Java
 "Plugin 'javacomplete'
 
+" Miscellaneous syntax support
+Plugin 'openscad.vim'
+
 call vundle#end()
 
