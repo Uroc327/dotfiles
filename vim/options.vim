@@ -41,7 +41,7 @@ set visualbell t_vb=
 set wildmenu
 set nowrap
 
-autocmd FileType c,cpp,sh,bash,zsh runtime ftplugin/man.vim
+autocmd FileType c,cpp,sh,bash,zsh,fstab runtime ftplugin/man.vim
 autocmd BufReadPost,VimEnter *.h normal! zR
 
 autocmd StdinReadPost * set buftype=nofile
