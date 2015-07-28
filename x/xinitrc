@@ -33,6 +33,8 @@ function later()
 	xscreensaver -nosplash &
 }
 
+eval $(ssh-agent)
+
 later &
 exec i3 
 
