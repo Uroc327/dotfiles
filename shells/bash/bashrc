@@ -16,4 +16,4 @@ fi
 
 # Put your fun stuff here.
 
-source .shellrc
+source ~/.shellrc
