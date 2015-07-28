@@ -141,6 +141,11 @@ map <Leader>l $
 " cd to directory of current file
 map <C-f> :exe "cd ".expand('%:p:h')<CR>:pwd<CR>
 
+" reload with encoding
+map <Leader>utf8 :e! ++enc=utf-8<CR>
+map <Leader>ucs :e! ++enc=ucs-bom<CR>
+map <Leader>latin :e! ++enc=latin1<CR>
+
 " folding
 nmap <silent> <Space> @=(foldlevel('.')?'za':"<Space>")<CR>
 vmap <Space> zf
