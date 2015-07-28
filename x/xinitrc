@@ -28,7 +28,7 @@ function after_x()
 
 	parcellite -n &
 
-	urxvtd -o -f
+	urxvtd -q -o -f
 
 	xscreensaver -nosplash &
 }
