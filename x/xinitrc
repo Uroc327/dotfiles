@@ -19,7 +19,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 	unset f
 fi
 
-function later()
+function after_x()
 {
 	sleep 2
 
@@ -35,6 +35,6 @@ function later()
 
 eval $(ssh-agent)
 
-later &
-exec i3 
+after_x &
+exec i3
 
