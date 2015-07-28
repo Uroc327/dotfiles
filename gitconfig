@@ -21,6 +21,7 @@
 	brs = branch -va
 	gcprune = gc --aggressive --prune=now
 	resetwd = checkout -f
+	reset-permissions = !git diff -p -R | grep -E '^(diff|(old|new) mode)' | git apply
 	root = rev-parse --show-toplevel
 	d = diff
 [push]
