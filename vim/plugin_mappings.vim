@@ -1,6 +1,6 @@
 " vim: set et sw=2:
 
-" gmarik/Vundle.vim
+" VundleVim/Vundle.vim
 
 " Gundo
 map <F8> :GundoToggle<CR>

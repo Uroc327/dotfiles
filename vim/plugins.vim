@@ -7,7 +7,7 @@ set runtimepath+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
 " Vundle
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " General vim extensions
 Plugin 'Gundo'
