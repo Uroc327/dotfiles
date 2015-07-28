@@ -153,5 +153,5 @@ map <silent> <Leader>/ :let @/ = ""<CR>
 nmap <silent> <Leader><Leader>n :call <SID>BlinkMatch(0.4)<CR>
 
 " don't jump when using *
-nnoremap <silent> * :let windict=winsaveview()<CR>*:call winrestview(windict)<CR>:unlet windict
+nnoremap <silent> * :let windict=winsaveview()<CR>*:call winrestview(windict)<CR>:unlet windict<CR>
 
