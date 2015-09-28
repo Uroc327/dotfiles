@@ -131,6 +131,24 @@ autocmd FileType vim           map  <silent> <buffer> <F6> :exe "h" expand('<cwo
 autocmd FileType vim           vmap <silent> <buffer> <F6> :exe "h" <SID>GetVisualSelection()<CR>
 autocmd FileType python,pyhelp map  <silent> <buffer> <F6> :call <SID>PyHelp(expand('<cword>'))<CR>
 autocmd FileType python,pyhelp vmap <silent> <buffer> <F6> :call <SID>PyHelp(<SID>GetVisualSelection())<CR>
+
+autocmd FileType c,cpp,sh,bash,zsh,fstab map  <silent> <buffer> <Leader>1<F6> :exe "Man" 1 expand('<cword>')<CR>
+autocmd FileType c,cpp,sh,bash,zsh,fstab map  <silent> <buffer> <Leader>2<F6> :exe "Man" 2 expand('<cword>')<CR>
+autocmd FileType c,cpp,sh,bash,zsh,fstab map  <silent> <buffer> <Leader>3<F6> :exe "Man" 3 expand('<cword>')<CR>
+autocmd FileType c,cpp,sh,bash,zsh,fstab map  <silent> <buffer> <Leader>4<F6> :exe "Man" 4 expand('<cword>')<CR>
+autocmd FileType c,cpp,sh,bash,zsh,fstab map  <silent> <buffer> <Leader>5<F6> :exe "Man" 5 expand('<cword>')<CR>
+autocmd FileType c,cpp,sh,bash,zsh,fstab map  <silent> <buffer> <Leader>6<F6> :exe "Man" 6 expand('<cword>')<CR>
+autocmd FileType c,cpp,sh,bash,zsh,fstab map  <silent> <buffer> <Leader>7<F6> :exe "Man" 7 expand('<cword>')<CR>
+autocmd FileType c,cpp,sh,bash,zsh,fstab map  <silent> <buffer> <Leader>8<F6> :exe "Man" 8 expand('<cword>')<CR>
+autocmd FileType c,cpp,sh,bash,zsh,fstab vmap <silent> <buffer> <Leader>1<F6> :exe "Man" 1 <SID>GetVisualSelection()<CR>
+autocmd FileType c,cpp,sh,bash,zsh,fstab vmap <silent> <buffer> <Leader>2<F6> :exe "Man" 2 <SID>GetVisualSelection()<CR>
+autocmd FileType c,cpp,sh,bash,zsh,fstab vmap <silent> <buffer> <Leader>3<F6> :exe "Man" 3 <SID>GetVisualSelection()<CR>
+autocmd FileType c,cpp,sh,bash,zsh,fstab vmap <silent> <buffer> <Leader>4<F6> :exe "Man" 4 <SID>GetVisualSelection()<CR>
+autocmd FileType c,cpp,sh,bash,zsh,fstab vmap <silent> <buffer> <Leader>5<F6> :exe "Man" 5 <SID>GetVisualSelection()<CR>
+autocmd FileType c,cpp,sh,bash,zsh,fstab vmap <silent> <buffer> <Leader>6<F6> :exe "Man" 6 <SID>GetVisualSelection()<CR>
+autocmd FileType c,cpp,sh,bash,zsh,fstab vmap <silent> <buffer> <Leader>7<F6> :exe "Man" 7 <SID>GetVisualSelection()<CR>
+autocmd FileType c,cpp,sh,bash,zsh,fstab vmap <silent> <buffer> <Leader>8<F6> :exe "Man" 8 <SID>GetVisualSelection()<CR>
+
 " filetype man page: see also ebuild(1) ebuild(5)
 " makefile: open browser??
 map <silent> <F7> :copen<CR>
