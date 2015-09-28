@@ -61,14 +61,9 @@ function! StatuslineIndentTabSpace()
 endfunction
 autocmd CursorHold,BufWritePost * unlet! b:statusline_indent_tab_space_warning
 
-set statusline=%*
-"set statusline+=[%!fugitive#head(7)]
-set statusline+=\ %f\ [%l:%v]
-set statusline+=%{StatuslineModified()}
-set statusline+=%{StatuslineReadOnly()}
-set statusline+=%{StatuslineFileFormatEncoding()}
-set statusline+=%{StatuslineTrailingSpace()}
-set statusline+=%{StatuslineIndentTabSpace()}
-set statusline+=%=
-set statusline+=%P\ /\ %L
+function! Statusline()
+  return '%* [' . fugitive#head(7) . '] %f [%l:%v]' . StatuslineModified() . StatuslineReadOnly() . StatuslineFileFormatEncoding() . StatuslineTrailingSpace() . StatuslineIndentTabSpace() . '%=%P / %L '
+endfunction
+
+set statusline=%!Statusline()
 
