@@ -95,8 +95,19 @@ map <S-Left> 6<Left>
 imap <S-Right> <Esc>6<Right>a
 imap <S-Left> <Esc>6<Left>a
 
+" deletion should leave yank register alone
+noremap d "_d
+noremap dd "_dd
+noremap D "_D
+
+" substition should leave yank register alone
+noremap s "_s
+
+" paste should leave yank register alone
+vnoremap p pgvy
+
 " double x should cut whole line
-map xx dd
+map xx yydd
 
 " save and close
 map <C-s> :wa<CR>
