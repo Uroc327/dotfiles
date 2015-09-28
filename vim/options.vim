@@ -25,7 +25,7 @@ set incsearch
 set infercase
 set laststatus=2
 set list
-set listchars=tab:\ \ ,trail:·,extends:»,precedes:«,nbsp:~
+set listchars=tab:· ,trail:·,extends:»,precedes:«,nbsp:~
 set ruler
 set scrolloff=2
 set shiftwidth=4
