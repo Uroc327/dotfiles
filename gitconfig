@@ -14,11 +14,14 @@
 	co = checkout
 	cl = clone
 	m = merge
-	pu = pull
+	pu = push
+	po = push origin
 	f = fetch
 	fo = fetch origin
 	br = branch
 	brs = branch -va
+	rb = rebase
+	rbom = rebase origin/master
 	gcprune = gc --aggressive --prune=now
 	resetwd = checkout -f
 	reset-permissions = !git diff -p -R | grep -E '^(diff|(old|new) mode)' | git apply
