@@ -44,6 +44,7 @@ textProgram:	fortune
 textURL:	http://planet.gentoo.org/rss20.xml
 
 programs:								      \
+"Pink Panther - The Pink Phink" mplayer --really-quiet --no-audio --fs --loop=inf --no-stop-screensaver --wid=$XSCREENSAVER_WINDOW ~data/videos/pink_panther_pink_phink_loop.webm \n\
 - GL: 				boincscr -root				    \n\
 -				maze -root				    \n\
 - GL: 				superquadrics -root			    \n\
