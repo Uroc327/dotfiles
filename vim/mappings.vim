@@ -126,8 +126,11 @@ map <M-q> :tabclose<CR>
 map <M-Tab> :tabNext<CR>
 map <S-M-Tab> :tabPrevious<CR>
 
+" strip trailing whitespace
 map <silent> <F1> :call <SID>StripTrailingWhitespaces()<CR>
 imap <silent> <F1> <Esc>:call <SID>StripTrailingWhitespaces()<CR>a
+
+" F6 to get help
 autocmd FileType c,cpp         map  <silent> <buffer> <F6> :exe "Man" 3 expand('<cword>')<CR>
 autocmd FileType c,cpp         vmap <silent> <buffer> <F6> :exe "Man" 3 <SID>GetVisualSelection()<CR>
 autocmd FileType sh,bash,zsh   map  <silent> <buffer> <F6> :exe "Man" 1 expand('<cword>')<CR>
@@ -138,26 +141,15 @@ autocmd FileType vim,help      vmap <silent> <buffer> <F6> :exe "h" <SID>GetVisu
 autocmd FileType python,pyhelp map  <silent> <buffer> <F6> :call <SID>PyHelp(expand('<cword>'))<CR>
 autocmd FileType python,pyhelp vmap <silent> <buffer> <F6> :call <SID>PyHelp(<SID>GetVisualSelection())<CR>
 
-autocmd FileType c,cpp,sh,bash,zsh,fstab map  <silent> <buffer> <Leader>1<F6> :exe "Man" 1 expand('<cword>')<CR>
-autocmd FileType c,cpp,sh,bash,zsh,fstab map  <silent> <buffer> <Leader>2<F6> :exe "Man" 2 expand('<cword>')<CR>
-autocmd FileType c,cpp,sh,bash,zsh,fstab map  <silent> <buffer> <Leader>3<F6> :exe "Man" 3 expand('<cword>')<CR>
-autocmd FileType c,cpp,sh,bash,zsh,fstab map  <silent> <buffer> <Leader>4<F6> :exe "Man" 4 expand('<cword>')<CR>
-autocmd FileType c,cpp,sh,bash,zsh,fstab map  <silent> <buffer> <Leader>5<F6> :exe "Man" 5 expand('<cword>')<CR>
-autocmd FileType c,cpp,sh,bash,zsh,fstab map  <silent> <buffer> <Leader>6<F6> :exe "Man" 6 expand('<cword>')<CR>
-autocmd FileType c,cpp,sh,bash,zsh,fstab map  <silent> <buffer> <Leader>7<F6> :exe "Man" 7 expand('<cword>')<CR>
-autocmd FileType c,cpp,sh,bash,zsh,fstab map  <silent> <buffer> <Leader>8<F6> :exe "Man" 8 expand('<cword>')<CR>
-autocmd FileType c,cpp,sh,bash,zsh,fstab vmap <silent> <buffer> <Leader>1<F6> :exe "Man" 1 <SID>GetVisualSelection()<CR>
-autocmd FileType c,cpp,sh,bash,zsh,fstab vmap <silent> <buffer> <Leader>2<F6> :exe "Man" 2 <SID>GetVisualSelection()<CR>
-autocmd FileType c,cpp,sh,bash,zsh,fstab vmap <silent> <buffer> <Leader>3<F6> :exe "Man" 3 <SID>GetVisualSelection()<CR>
-autocmd FileType c,cpp,sh,bash,zsh,fstab vmap <silent> <buffer> <Leader>4<F6> :exe "Man" 4 <SID>GetVisualSelection()<CR>
-autocmd FileType c,cpp,sh,bash,zsh,fstab vmap <silent> <buffer> <Leader>5<F6> :exe "Man" 5 <SID>GetVisualSelection()<CR>
-autocmd FileType c,cpp,sh,bash,zsh,fstab vmap <silent> <buffer> <Leader>6<F6> :exe "Man" 6 <SID>GetVisualSelection()<CR>
-autocmd FileType c,cpp,sh,bash,zsh,fstab vmap <silent> <buffer> <Leader>7<F6> :exe "Man" 7 <SID>GetVisualSelection()<CR>
-autocmd FileType c,cpp,sh,bash,zsh,fstab vmap <silent> <buffer> <Leader>8<F6> :exe "Man" 8 <SID>GetVisualSelection()<CR>
+for i in range(1, 9)
+  execute 'autocmd FileType c,cpp,sh,bash,zsh,fstab map  <silent> <buffer> <Leader>' . i . '<F6> :exe "Man" ' . i . ' expand("<cword>")<CR>'
+  execute 'autocmd FileType c,cpp,sh,bash,zsh,fstab vmap <silent> <buffer> <Leader>' . i . '<F6> :exe "Man" ' . i . ' <SID>GetVisualSelection()<CR>'
+endfor
 
 " filetype man page: see also ebuild(1) ebuild(5)
 " makefile: open browser??
 map <silent> <F7> :copen<CR>
+
 map <silent> <F12> :call <SID>PrintSynStack()<CR>
 
 " diffing
