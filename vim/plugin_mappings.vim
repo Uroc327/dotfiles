@@ -26,6 +26,10 @@ vmap <C-j> ]egv
 
 " Raimondi/delimitMate
 
+" triglav/vim-visual-increment
+vmap <C-a> <Plug>VisualIncrement \| gv
+vmap <C-x> <Plug>VisualDecrement \| gv
+
 " bkad/CamelCaseMotion
 
 " jlanzarotta/bufexplorer
