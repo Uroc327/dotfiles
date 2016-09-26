@@ -133,8 +133,8 @@ autocmd FileType c,cpp         vmap <silent> <buffer> <F6> :exe "Man" 3 <SID>Get
 autocmd FileType sh,bash,zsh   map  <silent> <buffer> <F6> :exe "Man" 1 expand('<cword>')<CR>
 autocmd FileType sh,bash,zsh   vmap <silent> <buffer> <F6> :exe "Man" 1 <SID>GetVisualSelection()<CR>
 autocmd FileType fstab         map  <silent> <buffer> <F6> :Man 5 fstab<CR>
-autocmd FileType vim           map  <silent> <buffer> <F6> :exe "h" expand('<cword>')<CR>
-autocmd FileType vim           vmap <silent> <buffer> <F6> :exe "h" <SID>GetVisualSelection()<CR>
+autocmd FileType vim,help      map  <silent> <buffer> <F6> :exe "h" expand('<cword>')<CR>
+autocmd FileType vim,help      vmap <silent> <buffer> <F6> :exe "h" <SID>GetVisualSelection()<CR>
 autocmd FileType python,pyhelp map  <silent> <buffer> <F6> :call <SID>PyHelp(expand('<cword>'))<CR>
 autocmd FileType python,pyhelp vmap <silent> <buffer> <F6> :call <SID>PyHelp(<SID>GetVisualSelection())<CR>
 
