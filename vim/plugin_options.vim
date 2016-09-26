@@ -3,6 +3,7 @@
 " VundleVim/Vundle.vim
 
 " Gundo
+let g:gundo_preview_bottom=1
 
 " haya14busa/incsearch.vim
 
