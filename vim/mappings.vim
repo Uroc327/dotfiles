@@ -120,6 +120,12 @@ cabbrev Qq q!
 cabbrev Qqa qa!
 cabbrev QQa qa!
 
+" tabbing
+map <M-t> :tabnew<CR>
+map <M-q> :tabclose<CR>
+map <M-Tab> :tabNext<CR>
+map <S-M-Tab> :tabPrevious<CR>
+
 map <silent> <F1> :call <SID>StripTrailingWhitespaces()<CR>
 imap <silent> <F1> <Esc>:call <SID>StripTrailingWhitespaces()<CR>a
 autocmd FileType c,cpp         map  <silent> <buffer> <F6> :exe "Man" 3 expand('<cword>')<CR>
