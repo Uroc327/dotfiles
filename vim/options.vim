@@ -16,7 +16,7 @@ set backspace=indent,eol,start
 set clipboard=unnamed,exclude:cons\|linux
 set nofoldenable
 set formatoptions-=tc
-set formatoptions+=rol
+set formatoptions+=rolj
 set grepprg=grep\ -in\ $*\ /dev/null
 set hidden
 set history=10000
