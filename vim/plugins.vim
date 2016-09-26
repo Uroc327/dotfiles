@@ -11,6 +11,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " General vim extensions
 Plugin 'Gundo'
+Plugin 'haya14busa/incsearch.vim'
 Plugin 'matchit.zip'
 Plugin 'AndrewRadev/linediff.vim'
 "Plugin 'tpope/vim-dispatch'

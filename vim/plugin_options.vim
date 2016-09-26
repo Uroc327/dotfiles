@@ -4,6 +4,8 @@
 
 " Gundo
 
+" haya14busa/incsearch.vim
+
 " matchit.zip
 
 " AndrewRadev/linediff.vim

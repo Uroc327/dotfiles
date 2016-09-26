@@ -6,6 +6,10 @@
 map <F8> :GundoToggle<CR>
 map <S-F8> :GundoRenderGraph<CR>
 
+" haya14busa/incsearch.vim
+map <expr> / incsearch#go({'command': '/', 'is_stay': '1'})
+map <expr> ? incsearch#go({'command': '?', 'is_stay': '1'})
+
 " matchit.zip
 
 " AndrewRadev/linediff.vim
