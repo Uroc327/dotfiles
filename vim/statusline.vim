@@ -1,5 +1,9 @@
 " vim: set et sw=2:
 
+function! StatuslineGit()
+  return fugitive#head(7)
+endfunction
+
 function! StatuslineModified()
   return &modifiable ? &modified ? ' [+]' : '' : ' [-]'
 endfunction
@@ -14,11 +18,11 @@ function! StatuslineFileFormatEncoding()
   let status = ''
 
   if fmt || enc
-    let status .= ' %#warningmsg#['
+    let status .= '['
     let status .= fmt ? &ff : ''
     let status .= fmt && enc ? ',' : ''
     let status .= enc ? &fenc : ''
-    let status .= ']%*'
+    let status .= ']'
   endif
 
   return status
@@ -26,7 +30,7 @@ endfunction
 
 function! StatuslineTrailingSpace()
   if !exists('b:statusline_trailing_space_warning')
-    let b:statusline_trailing_space_warning = &modifiable ? search('\s\+$', 'nw') != 0 ? ' %#warningmsg#[\s]%*' : '' : ''
+    let b:statusline_trailing_space_warning = &modifiable ? search('\s\+$', 'nw') != 0 ? '[\s]' : '' : ''
   endif
 
   return b:statusline_trailing_space_warning
@@ -43,16 +47,16 @@ function! StatuslineIndentTabSpace()
     return b:statusline_indent_tab_space_warning
   endif
 
-  let tabs      = search('\v^\t+\S', 'nw')            != 0
-  let spaces    = search('\v^ +\S', 'nw')             != 0
-  let scrambled = search('\v(^\t+ +)|(^ +\t+)', 'nw') != 0
+  let tabs      = search('\v^\t+\S', 'nw') != 0
+  let spaces    = search('\v^ +\S', 'nw')  != 0
+  let scrambled = search('\v +\t+', 'nw')  != 0
 
   if scrambled
-    let b:statusline_indent_tab_space_warning = ' %#warningmsg#[scrambled indent]%*'
+    let b:statusline_indent_tab_space_warning = '[scrambled indent]'
   elseif tabs && spaces
-    let b:statusline_indent_tab_space_warning = ' %#warningmsg#[mixed &et]%*'
+    let b:statusline_indent_tab_space_warning = '[mixed &et]'
   elseif (tabs && &et) || (spaces && !&et)
-    let b:statusline_indent_tab_space_warning = ' %#warningmsg#[&et]%*'
+    let b:statusline_indent_tab_space_warning = '[&et]'
   else
     let b:statusline_indent_tab_space_warning = ''
   endif
@@ -61,9 +65,5 @@ function! StatuslineIndentTabSpace()
 endfunction
 autocmd CursorHold,BufWritePost * unlet! b:statusline_indent_tab_space_warning
 
-function! Statusline()
-  return '%* [' . fugitive#head(7) . '] %f [%l:%v]' . StatuslineModified() . StatuslineReadOnly() . StatuslineFileFormatEncoding() . StatuslineTrailingSpace() . StatuslineIndentTabSpace() . '%=%P / %L '
-endfunction
-
-set statusline=%!Statusline()
+set statusline=%*\ [%{StatuslineGit()}]\ %f\ [%l:%v]%{StatuslineModified()}%{StatuslineReadOnly()}\ %#warningmsg#%{StatuslineFileFormatEncoding()}%*\ %#warningmsg#%{StatuslineTrailingSpace()}%*\ %#warningmsg#%{StatuslineIndentTabSpace()}%*%=%P\ /\ %L\ 
 
