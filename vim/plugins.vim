@@ -53,6 +53,7 @@ Plugin 'Uroc327/vim-numbertoggle'
 
 " Miscellaneous syntax support
 Plugin 'openscad.vim'
+Plugin 'kelwin/vim-smali'
 
 call vundle#end()
 
