@@ -31,6 +31,7 @@ vmap <C-a> <Plug>VisualIncrement \| gv
 vmap <C-x> <Plug>VisualDecrement \| gv
 
 " bkad/CamelCaseMotion
+call camelcasemotion#CreateMotionMappings('<Leader>')
 
 " jlanzarotta/bufexplorer
 map <silent> <F2> :BufExplorer<CR>
