@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# xprofile for lightdm
+
+xset -b # no system beep
+xset r rate 170 60
+
+parcellite -n &
+
+urxvtd -q -o -f
+
+xscreensaver -nosplash &
+
+eval $(ssh-agent)
+
