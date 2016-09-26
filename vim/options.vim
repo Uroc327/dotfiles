@@ -10,6 +10,7 @@ filetype indent on
 
 syntax on
 
+set belloff=all
 set autoindent
 set backspace=indent,eol,start
 set clipboard=unnamed,exclude:cons\|linux
