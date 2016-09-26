@@ -25,7 +25,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'Raimondi/delimitMate'
 "Plugin 'godlygeek/tabular'
 "Plugin 'dhruvasagar/vim-table-mode'
-"Plugin 'triglav/vim-visual-increment'
+Plugin 'triglav/vim-visual-increment'
 Plugin 'bkad/CamelCaseMotion'
 "Plugin 'bronson/vim-visual-star-search'
 
