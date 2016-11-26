@@ -152,6 +152,12 @@ map <silent> <F7> :copen<CR>
 
 map <silent> <F12> :call <SID>PrintSynStack()<CR>
 
+" headings
+nmap <Leader><Space>= "hY"hpkVr=j
+nmap <Leader><Space>- "hY"hpkVr-j
+nmap <Leader><Leader><Space>= kdd"hY"hpkVr=j
+nmap <Leader><Leader><Space>- kdd"hY"hpkVr-j
+
 " diffing
 map <C-d> :diffthis<CR>
 map <M-d> :diffoff<CR>:set nowrap<CR>
