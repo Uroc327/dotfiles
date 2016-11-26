@@ -21,13 +21,18 @@
 	br = branch
 	brs = branch -va
 	rb = rebase
+	rboc = !git rebase origin/$(git symbolic-ref --short HEAD)
 	rbom = rebase origin/master
+	rbod = rebase origin/develop
 	gcprune = gc --aggressive --prune=now
 	resetwd = checkout -f
 	reset-permissions = !git diff -p -R | grep -E '^(diff|(old|new) mode)' | git apply
 	root = rev-parse --show-toplevel
 	d = diff
+	g = grep
 [push]
 	default = tracking
+[grep]
+	lineNumber = true
 [color]
 	ui = auto
