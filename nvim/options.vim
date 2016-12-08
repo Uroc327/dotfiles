@@ -2,8 +2,6 @@
 
 scriptencoding utf-8
 
-filetype plugin indent on
-
 set belloff=all
 set clipboard=unnamed
 set display=

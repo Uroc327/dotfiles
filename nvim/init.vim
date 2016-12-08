@@ -5,11 +5,11 @@ if exists('s:loaded_vimrc')
 endif
 let s:loaded_vimrc = 1
 
-source ~/.config/nvim_bug/plugins.vim
-source ~/.config/nvim_bug/options.vim
-source ~/.config/nvim_bug/plugin_options.vim
-source ~/.config/nvim_bug/statusline.vim
-source ~/.config/nvim_bug/mappings.vim
-source ~/.config/nvim_bug/plugin_mappings.vim
-source ~/.config/nvim_bug/colors.vim
+source ~data/dotfiles/nvim/plugins.vim
+source ~data/dotfiles/nvim/options.vim
+source ~data/dotfiles/nvim/plugin_options.vim
+source ~data/dotfiles/nvim/statusline.vim
+source ~data/dotfiles/nvim/mappings.vim
+source ~data/dotfiles/nvim/plugin_mappings.vim
+source ~data/dotfiles/nvim/colors.vim
 
