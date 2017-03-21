@@ -9,6 +9,7 @@ call dein#add('Shougo/dein.vim')
 
 " libs
 call dein#add('kana/vim-operator-user')
+call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 
 " Vim miscellaneous
 call dein#add('AndrewRadev/linediff.vim')
@@ -36,7 +37,7 @@ call dein#add('Shougo/unite.vim')
 call dein#add('tpope/vim-git')
 call dein#add('tpope/vim-fugitive')
 
-" Completion and building
+" Building and linting
 " neomake/neomake
 " Shougo/neoinclude.vim
 " Shougo/neosnippet.vim
@@ -65,7 +66,7 @@ call dein#add('kelwin/vim-smali')
 
 " star search for visual block
 " shift star search for regex-or addition
-" tagbar (using unite?)
+" tagbar/outline (using unite?)
 " jump to definition, declaration, reference
 " when showing undo tree, dim all non-related buffers
 " toggling relative numbers per buffer
