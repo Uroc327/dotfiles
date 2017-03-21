@@ -1,6 +1,6 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-demo 5.34 for constantin on Sun Feb 14 19:29:05 2016.
-# http://www.jwz.org/xscreensaver/
+# Written by xscreensaver-demo 5.36 for constantin on Sun Mar 19 03:40:47 2017.
+# https://www.jwz.org/xscreensaver/
 
 timeout:	0:24:00
 cycle:		0:04:00
@@ -43,10 +43,11 @@ textFile:	/etc/gentoo-release
 textProgram:	fortune
 textURL:	http://planet.gentoo.org/rss20.xml
 
-
-
 programs:								      \
-"Pink Panther - The Pink Phink" mpv --really-quiet --no-audio --fs --loop=inf --no-stop-screensaver --wid=$XSCREENSAVER_WINDOW ~data/videos/pink_panther_pink_phink_loop.webm \n\
+"Pink Panther - The Pink Phink" mpv --really-quiet --no-audio --fs	      \
+				  --loop=inf --no-stop-screensaver	      \
+				  --wid=$XSCREENSAVER_WINDOW		      \
+				  ~data/videos/pink_panther_pink_phink_loop.webm \n\
 - GL: 				boincscr -root				    \n\
 -				maze -root				    \n\
 - GL: 				superquadrics -root			    \n\
@@ -262,6 +263,16 @@ programs:								      \
 - GL: 				romanboy -root				    \n\
 - GL: 				splitflap -root				    \n\
 -				testx11 -root				    \n\
+- GL: 				cubestack -root				    \n\
+- GL: 				cubetwist -root				    \n\
+- GL: 				discoball -root				    \n\
+- GL: 				dymaxionmap -root			    \n\
+  GL: 				energystream -root			    \n\
+- GL: 				hexstrut -root				    \n\
+  GL: 				hydrostat -root				    \n\
+  GL: 				raverhoop -root				    \n\
+  GL: 				splodesic -root				    \n\
+  GL: 				unicrud -root				    \n\
 
 
 pointerPollTime:    0:00:05
