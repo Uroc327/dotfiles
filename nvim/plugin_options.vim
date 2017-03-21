@@ -21,9 +21,13 @@ let g:mundo_preview_bottom=1
 " triglav/vim-visual-increment
 
 " Shougo/unite.nvim
-call unite#custom#source('buffer,line,window,mapping', 'matchers', 'matcher_fuzzy')
+call unite#custom#source('buffer,line,window,mapping,grep', 'matchers', 'matcher_fuzzy')
 call unite#custom#profile('default', 'context', { 'start_insert': 1, 'split': 0 })
 let g:unite_source_line_enable_highlight = 1
+"let g:unite_source_grep_command = 'rg'
+"let g:unite_source_grep_default_opts = '--follow --nogroup --nocolor --column'
+"let g:unite_source_grep_default_opts = '--hidden --no-heading --vimgrep -S'
+"let g:unite_source_grep_recursive_opt = ''
 
 " tpope/vim-git
 
