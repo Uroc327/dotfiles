@@ -36,7 +36,9 @@ map <S-S> :split<CR><F2>
 map <M-s> :rightbelow vsplit<CR><F2>
 map <M-F2> :<C-u>Unite tab<CR>
 map <Leader><F2> :exec 'Unite -no-start-insert -input=' . expand('%:t:r') . ' buffer window'<CR>
-map <Leader>n/ :<C-u>Unite line<CR>
+map <Leader>g/ :<C-u>Unite grep:.<CR>
+map <Leader># :<C-u>Unite line<CR>
+map <Leader><Leader>m :<C-u>Unite mapping<CR>
 function! s:unite_mappings()
   nmap <buffer> <Esc>   <Plug>(unite_exit)
   imap <buffer> <C-Bs>  <Plug>(unite_exit)
