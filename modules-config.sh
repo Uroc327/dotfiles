@@ -19,7 +19,11 @@ module_ssh_copy=(.ssh)
 module_vim_link=(.vim .vimrc .gvimrc)
 
 module_x_from=x/
-module_x_link=(.xinitrc .Xresources .xprofile .xscreensaver)
+module_x_link=(.xinitrc .Xresources .xprofile)
+
+module_xscreensaver_from=x/
+module_xscreensaver_link=(.xscreensaver)
+module_xscreensaver_depend=(x)
 
 module_xdg_link=(.config/user-dirs.dirs)
 
