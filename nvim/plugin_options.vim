@@ -8,7 +8,7 @@ let g:linediff_first_buffer_command = 'leftabove new'
 let g:linediff_second_buffer_command = 'rightbelow vnew'
 
 " simnalamburt/vim-mundo
-let g:mundo_preview_bottom=1
+let g:mundo_preview_bottom = 1
 
 " haya14busa/incsearch.vim
 
@@ -19,6 +19,27 @@ let g:mundo_preview_bottom=1
 " tpope/vim-unimpaired
 
 " triglav/vim-visual-increment
+
+" jungeunn/goyo.vim
+let g:goyo_width = 180
+
+" junegunn/limelight.vim
+function! s:goyo_enter()
+  colorscheme seoul256
+  set noshowmode
+  set noshowcmd
+  Limelight
+endfunction
+
+function! s:goyo_leave()
+  Limelight!
+  set showcmd
+  set showmode
+  colorscheme smyck_custom
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 " Shougo/unite.nvim
 call unite#custom#source('buffer,line,window,mapping,grep', 'matchers', 'matcher_fuzzy')

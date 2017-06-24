@@ -15,6 +15,7 @@ call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 call dein#add('AndrewRadev/linediff.vim')
 call dein#add('simnalamburt/vim-mundo')
 call dein#add('haya14busa/incsearch.vim')
+" vim-airline
 
 " Code movement and editing
 call dein#add('bkad/CamelCaseMotion')
@@ -28,9 +29,16 @@ call dein#add('triglav/vim-visual-increment')
 call dein#add('Uroc327/vim-numbertoggle')
 " osyo-manga/vim-snowdrop
 " libclang-vim/libclang-vim
+" sbdchd/neoformat
+" welle/targets.vim
+
+" writing
+call dein#add('junegunn/goyo.vim')
+call dein#add('junegunn/limelight.vim')
 
 " Browsing
 call dein#add('Shougo/unite.vim')
+call dein#add('Shougo/unite-outline')
 "call dein#add('Shougo/denite.nvim')
 
 " Git
@@ -48,6 +56,7 @@ call dein#add('Shougo/neco-syntax')
 call dein#add('Shougo/neco-vim')
 call dein#add('zchee/deoplete-clang')
 call dein#add('zchee/deoplete-zsh')
+" artur-shaik/vim-javacomplete2
 
 " Shell
 " Shougo/Vimshell.vim
@@ -61,7 +70,8 @@ call dein#add('zchee/deoplete-zsh')
 " daeyun/vim-matlab
 
 " Highlighting
-call dein#add('openscad.vim')
+call dein#add('junegunn/seoul256.vim')
+call dein#add('vim-scripts/openscad.vim')
 call dein#add('kelwin/vim-smali')
 
 " star search for visual block
