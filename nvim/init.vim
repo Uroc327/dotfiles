@@ -1,4 +1,4 @@
-" vim set et sw=2:
+" vim: set et sw=2:
 
 if exists('s:loaded_vimrc')
   finish
