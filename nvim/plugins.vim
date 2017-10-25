@@ -38,9 +38,7 @@ call dein#add('junegunn/goyo.vim')
 call dein#add('junegunn/limelight.vim')
 
 " Browsing
-call dein#add('Shougo/unite.vim')
-call dein#add('Shougo/unite-outline')
-"call dein#add('Shougo/denite.nvim')
+call dein#add('Shougo/denite.nvim')
 
 " Git
 call dein#add('tpope/vim-git')
