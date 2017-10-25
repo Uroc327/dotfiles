@@ -1,9 +1,13 @@
+[core]
+	pager = less -F -X
 [user]
 	name = Constantin Runge
 	username = Uroc327
 	email = c.runge@cssbook.de
 [rerere]
 	enabled = true
+[diff]
+	whitespace = red reverse
 [difftool]
 	prompt = false
 [alias]
@@ -32,6 +36,8 @@
 	g = grep
 [push]
 	default = tracking
+[fetch]
+	prune = true
 [grep]
 	lineNumber = true
 [color]
