@@ -4,6 +4,9 @@
 	name = Constantin Runge
 	username = Uroc327
 	email = c.runge@cssbook.de
+	#name = {{ name }}
+	#username = {{ username }}
+	#email = {{ email }}
 [rerere]
 	enabled = true
 [diff]
