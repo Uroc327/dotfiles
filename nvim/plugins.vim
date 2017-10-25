@@ -25,6 +25,7 @@ call dein#add('cohama/lexima.vim')
 " ! rhysd/vim-clang-format
 " terryma/vim-multiple-cursors
 call dein#add('tpope/vim-unimpaired')
+" tpope/vim-surround
 call dein#add('triglav/vim-visual-increment')
 call dein#add('Uroc327/vim-numbertoggle')
 " osyo-manga/vim-snowdrop
@@ -53,10 +54,12 @@ call dein#add('tpope/vim-fugitive')
 " Completion
 call dein#add('Shougo/deoplete.nvim')
 call dein#add('Shougo/neco-syntax')
+" Shougo/neco-ghc
 call dein#add('Shougo/neco-vim')
 call dein#add('zchee/deoplete-clang')
 call dein#add('zchee/deoplete-zsh')
 " artur-shaik/vim-javacomplete2
+" autozimu/LanguageClient-neovim
 
 " Shell
 " Shougo/Vimshell.vim

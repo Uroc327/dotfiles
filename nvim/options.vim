@@ -14,7 +14,7 @@ set infercase
 set list
 set listchars=tab:· ,trail:·,extends:»,precedes:«,nbsp:~
 set ruler
-set scrolloff=2
+"set scrolloff=2
 set shiftwidth=4
 set showcmd
 set sidescroll=1
