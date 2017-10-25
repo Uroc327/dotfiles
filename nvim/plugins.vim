@@ -74,8 +74,9 @@ call dein#add('zchee/deoplete-zsh')
 
 " Highlighting
 call dein#add('junegunn/seoul256.vim')
-call dein#add('vim-scripts/openscad.vim')
 call dein#add('kelwin/vim-smali')
+call dein#add('leafgarlang/typescript-vim')
+call dein#add('vim-scripts/openscad.vim')
 
 " star search for visual block
 " shift star search for regex-or addition

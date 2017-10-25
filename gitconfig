@@ -36,6 +36,7 @@
 	g = grep
 [push]
 	default = tracking
+	recurseSubmodules = check
 [fetch]
 	prune = true
 [grep]
