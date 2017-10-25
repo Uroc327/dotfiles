@@ -13,6 +13,9 @@ user_module_nvim_to=.config
 user_module_nvim_link=(nvim)
 user_module_nvim_options=(noprefix)
 
+user_module_oni_link=(oni)
+user_module_oni_depend=(nvim)
+
 user_module_shell_from=shells/
 user_module_shell_link=(shellrc)
 
