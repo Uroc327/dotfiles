@@ -1,0 +1,55 @@
+---
+
+repo:
+  name: crunge
+  type: user
+
+  modules:
+    - name: bash
+      from: shells/bash/
+      link: [ bash_logout bash_profile bashrc ]
+      depend: shell
+
+    - name: git
+      template: gitconfig
+
+    - name: i3
+      from: x/
+      link: i3
+      depend: x
+
+    - name: nvim
+      to: .config
+      link: nvim
+      options: noprefix
+
+    - name: oni
+      link: oni
+      depend: nvim
+
+    - name: shell
+      from: shells/
+      link: shellrc
+
+    - name: vim
+      link: [ vim vimrc gvimrc ]
+
+    - name: x
+      from: x/
+      link: [ xinitrc Xresources xprofile ]
+
+    - name: xscreensaver
+      from: x/
+      link: xscreensaver
+      depend: x
+
+    - name: xdg
+      to: .config
+      link: user-dirs.dirs
+      options: noprefix
+
+    - name: zsh
+      from: shells/
+      link: zshrc
+      depend: shell
+
