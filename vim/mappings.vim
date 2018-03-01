@@ -97,7 +97,7 @@ imap <S-Left> <Esc>6<Left>a
 
 " deletion should leave yank register alone
 noremap d "_d
-noremap dd "_dd
+nnoremap dd "_dd
 noremap D "_D
 
 " substition should leave yank register alone
