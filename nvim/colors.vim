@@ -2,5 +2,5 @@
 
 colorscheme smyck_custom
 " colorscheme seoul256
-" onedark scheme from oni
+"native onedark scheme from oni
 

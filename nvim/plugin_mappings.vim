@@ -40,6 +40,7 @@ map <Leader><Leader>/ :<C-u>Denite line<CR>
 " map <Leader><Leader>m :<C-u>Denite mapping<CR> (with fuzzy matcher)
 
 call denite#custom#map('insert', '<Esc>',   '<denite:enter_mode:normal>')
+call denite#custom#map('insert', '<S-Esc>', '<denite:quit>')
 call denite#custom#map('insert', '<C-Bs>',  '<denite:quit>')
 call denite#custom#map('insert', '<Tab>',   '<denite:move_to_next_line>')
 call denite#custom#map('insert', '<S-Tab>', '<denite:move_to_previous_line>')

@@ -42,9 +42,10 @@ autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 " Shougo/denite.vim
-" default no split
 call denite#custom#source('buffer,line,grep', 'matchers', ['matcher_fuzzy'])
 call denite#custom#option('default', 'split', 'no')
+call denite#custom#option('default', 'highlight_mode_insert', 'Search')
+call denite#custom#option('default', 'highlight_mode_normal', 'Search')
 call denite#custom#option('line', 'auto_highlight', v:true)
 call denite#custom#var('grep', 'command', ['rg'])
 call denite#custom#var('grep', 'default_opts', ['--vimgrep', '--no-heading'])

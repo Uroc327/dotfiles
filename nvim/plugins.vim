@@ -9,7 +9,6 @@ call dein#add('Shougo/dein.vim')
 
 " libs
 call dein#add('kana/vim-operator-user')
-call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 
 " Vim miscellaneous
 call dein#add('AndrewRadev/linediff.vim')
@@ -73,7 +72,7 @@ call dein#add('zchee/deoplete-zsh')
 " Highlighting
 call dein#add('junegunn/seoul256.vim')
 call dein#add('kelwin/vim-smali')
-call dein#add('leafgarlang/typescript-vim')
+call dein#add('leafgarland/typescript-vim')
 call dein#add('vim-scripts/openscad.vim')
 
 " star search for visual block
