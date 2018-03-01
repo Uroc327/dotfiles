@@ -4,5 +4,3 @@ function find-cpp-exec()
 	GREP_OPTIONS="--color-always" find . -type f \( -name '*.cpp' -or -name '*h' -or -name Makefile \) -exec "$@" {} +
 }
 
-alias fg="find-cpp-exec grep"
-
