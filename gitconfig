@@ -37,6 +37,7 @@
 	root = rev-parse --show-toplevel
 	d = diff
 	g = grep
+	children = "!f() { git rev-list --all --not $1^@ --children | grep $(git rev-parse $1); }; f"
 [push]
 	default = tracking
 	recurseSubmodules = check
