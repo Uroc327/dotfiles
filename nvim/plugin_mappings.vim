@@ -37,9 +37,9 @@ map <M-s> :rightbelow vsplit<CR><F2>
 map <Leader><F2> :exec 'Denite -mode=normal -input=' . expand('%:t:r') . ' buffer'<CR>
 map <Leader>g/ :<C-u>Denite grep<CR>
 map <Leader><Leader>/ :<C-u>Denite line<CR>
-" are unnamed buffers shown for <F2>? (see Unite window source)
 " map <Leader><Leader>m :<C-u>Denite mapping<CR> (with fuzzy matcher)
 
+call denite#custom#map('insert', '<Esc>',   '<denite:enter_mode:normal>')
 call denite#custom#map('insert', '<C-Bs>',  '<denite:quit>')
 call denite#custom#map('insert', '<Tab>',   '<denite:move_to_next_line>')
 call denite#custom#map('insert', '<S-Tab>', '<denite:move_to_previous_line>')
