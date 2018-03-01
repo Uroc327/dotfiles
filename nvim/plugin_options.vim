@@ -41,14 +41,17 @@ endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
-" Shougo/unite.nvim
-call unite#custom#source('buffer,line,window,mapping,grep', 'matchers', 'matcher_fuzzy')
-call unite#custom#profile('default', 'context', { 'start_insert': 1, 'split': 0 })
-let g:unite_source_line_enable_highlight = 1
-"let g:unite_source_grep_command = 'rg'
-"let g:unite_source_grep_default_opts = '--follow --nogroup --nocolor --column'
-"let g:unite_source_grep_default_opts = '--hidden --no-heading --vimgrep -S'
-"let g:unite_source_grep_recursive_opt = ''
+" Shougo/denite.vim
+" default no split
+call denite#custom#source('buffer,line,grep', 'matchers', ['matcher_fuzzy'])
+call denite#custom#option('default', 'split', 'no')
+call denite#custom#option('line', 'auto_highlight', v:true)
+call denite#custom#var('grep', 'command', ['rg'])
+call denite#custom#var('grep', 'default_opts', ['--vimgrep', '--no-heading'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
 
 " tpope/vim-git
 

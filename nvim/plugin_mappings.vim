@@ -30,22 +30,19 @@ vmap <C-x> <Plug>VisualDecrement \| gv
 " Uroc327/vim-number-toggle
 let g:NumberToggleTrigger = '<Leader>n'
 
-" Shougo/unite.nvim
-map <F2> :<C-u>Unite buffer window<CR>
+" Shougo/denite.vim
+map <F2> :<C-u>Denite buffer<CR>
 map <S-S> :split<CR><F2>
 map <M-s> :rightbelow vsplit<CR><F2>
-map <M-F2> :<C-u>Unite tab<CR>
-map <Leader><F2> :exec 'Unite -no-start-insert -input=' . expand('%:t:r') . ' buffer window'<CR>
-map <Leader>g/ :<C-u>Unite grep:.<CR>
-map <Leader># :<C-u>Unite line<CR>
-map <Leader><Leader>m :<C-u>Unite mapping<CR>
-function! s:unite_mappings()
-  nmap <buffer> <Esc>   <Plug>(unite_exit)
-  imap <buffer> <C-Bs>  <Plug>(unite_exit)
-  imap <buffer> <Tab>   <Plug>(unite_select_next_line)
-  imap <buffer> <S-Tab> <Plug>(unite_select_previous_line)
-endfunction
-au FileType unite call s:unite_mappings()
+map <Leader><F2> :exec 'Denite -mode=normal -input=' . expand('%:t:r') . ' buffer'<CR>
+map <Leader>g/ :<C-u>Denite grep<CR>
+map <Leader><Leader>/ :<C-u>Denite line<CR>
+" map <Leader><Leader>m :<C-u>Denite mapping<CR> (with fuzzy matcher)
+
+call denite#custom#map('insert', '<Esc>',   '<denite:enter_mode:normal>')
+call denite#custom#map('insert', '<C-Bs>',  '<denite:quit>')
+call denite#custom#map('insert', '<Tab>',   '<denite:move_to_next_line>')
+call denite#custom#map('insert', '<S-Tab>', '<denite:move_to_previous_line>')
 
 " sources:
 " - grep
