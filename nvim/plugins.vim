@@ -16,21 +16,23 @@ call dein#add('simnalamburt/vim-mundo')
 call dein#add('haya14busa/incsearch.vim')
 " vim-airline
 
-" Code movement and editing
+" Text objects
+call dein#add('welle/targets.vim')
 call dein#add('bkad/CamelCaseMotion')
+call dein#add('vim-scripts/argtextobj.vim')
+
+" Code movement and editing
 call dein#add('cohama/lexima.vim')
 " godlygeek/tabular
 " osyo-manga/vim-anzu / vim-indexed-search
-" ! rhysd/vim-clang-format
 " terryma/vim-multiple-cursors
+call dein#add('sbdchd/neoformat')
 call dein#add('tpope/vim-unimpaired')
 " tpope/vim-surround
 call dein#add('triglav/vim-visual-increment')
 call dein#add('Uroc327/vim-numbertoggle')
-" osyo-manga/vim-snowdrop
-" libclang-vim/libclang-vim
-" sbdchd/neoformat
-" welle/targets.vim
+" osyo-manga/vim-snowdrop vs libclang-vim/libclang-vim with corresponding plugins
+" chromatica.nvim / clighter / color_coded
 
 " writing
 call dein#add('junegunn/goyo.vim')
@@ -45,18 +47,13 @@ call dein#add('tpope/vim-fugitive')
 
 " Building and linting
 " neomake/neomake
-" Shougo/neoinclude.vim
-" Shougo/neosnippet.vim
 
 " Completion
-call dein#add('Shougo/deoplete.nvim')
-call dein#add('Shougo/neco-syntax')
-" Shougo/neco-ghc
+call dein#add('autozimu/LanguageClient-neovim', { 'rev': 'next', 'build': 'bsah install.sh' })
+call dein#add('roxma/nvim-completion-manager')
 call dein#add('Shougo/neco-vim')
-call dein#add('zchee/deoplete-clang')
-call dein#add('zchee/deoplete-zsh')
-" artur-shaik/vim-javacomplete2
-" autozimu/LanguageClient-neovim
+" Shougo/neoinclude.vim
+" Shougo/neosnippet.vim
 
 " Shell
 " Shougo/Vimshell.vim
@@ -77,7 +74,7 @@ call dein#add('vim-scripts/openscad.vim')
 
 " star search for visual block
 " shift star search for regex-or addition
-" tagbar/outline (using unite?)
+" tagbar/outline (using unite? using language server?)
 " jump to definition, declaration, reference
 " when showing undo tree, dim all non-related buffers
 " toggling relative numbers per buffer

@@ -17,6 +17,11 @@ call camelcasemotion#CreateMotionMappings('<Leader>')
 
 " cohama/lexima.vim
 
+" sbdchd/noeformat
+autocmd FileType c,cpp nnoremap <buffer> <Leader><Leader>F :<C-u>Neoformat<CR>
+autocmd FileType c     vnoremap <buffer> <Leader>F :NeoFormat! c
+autocmd FileType cpp   vnoremap <buffer> <Leader>F :NeoFormat! cpp
+
 " tpope/vim-unimpaired
 nmap <C-k> [e
 nmap <C-j> ]e
@@ -39,31 +44,30 @@ map <Leader>g/ :<C-u>Denite grep<CR>
 map <Leader><Leader>/ :<C-u>Denite line<CR>
 " map <Leader><Leader>m :<C-u>Denite mapping<CR> (with fuzzy matcher)
 
+call denite#custom#map('normal', '<F2>',    '<denite:quit>')
+call denite#custom#map('insert', '<F2>',    '<denite:quit>')
 call denite#custom#map('insert', '<Esc>',   '<denite:enter_mode:normal>')
 call denite#custom#map('insert', '<S-Esc>', '<denite:quit>')
 call denite#custom#map('insert', '<C-Bs>',  '<denite:quit>')
 call denite#custom#map('insert', '<Tab>',   '<denite:move_to_next_line>')
 call denite#custom#map('insert', '<S-Tab>', '<denite:move_to_previous_line>')
+" <Leader>s -> toggle sorting between fullpath (default?) sorting and ftime,reverse sorting
 
 " sources:
-" - grep
-" - outline
 " - build/lint errors
 " - sessions
 " - markers
 " - git
-" - mappings
 
 " tpope/vim-git
 
 " tpope/vim-fugitive
 
 " Completion
-"inoremap <silent><expr> <Tab> pumvisible() ? '<C-n>' : '<Tab>'
-"inoremap <silent><expr> <S-Tab> pumvisible() ? '<C-p>' : '<Tab>'
-"inoremap <silent><expr> <C-Space> deoplete#manual_complete()
-"inoremap <silent><expr> <Cr> pumvisible() ? deoplete#close_popup() : '<C-g>u<Cr>'
-"inoremap <silent><expr> <Esc> pumvisible() ? '<C-e>u' : '<Esc>'
+inoremap <silent><expr> <Tab> pumvisible() ? '<C-n>' : '<Tab>'
+inoremap <silent><expr> <S-Tab> pumvisible() ? '<C-p>' : '<S-Tab>'
+" C-Space -> select
+" Esc -> close
 
 " openscad.vim
 

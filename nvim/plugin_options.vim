@@ -48,7 +48,7 @@ call denite#custom#option('default', 'highlight_mode_insert', 'Search')
 call denite#custom#option('default', 'highlight_mode_normal', 'Search')
 call denite#custom#option('line', 'auto_highlight', v:true)
 call denite#custom#var('grep', 'command', ['rg'])
-call denite#custom#var('grep', 'default_opts', ['--vimgrep', '--no-heading'])
+call denite#custom#var('grep', 'default_opts', ['--vimgrep', '--no-heading', '-g!submodules/girolink-spa'])
 call denite#custom#var('grep', 'recursive_opts', [])
 call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
 call denite#custom#var('grep', 'separator', ['--'])
@@ -65,7 +65,7 @@ call deoplete#custom#set('_', 'matchers', ['matcher_head'])
 let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
 let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
 let g:deoplete#sources#clang#std = { 'cpp': 'c++14' }
-" autodetect clang complete database
+" detect clang complete database
 " do not open scratch buffer
 
 " openscad.vim

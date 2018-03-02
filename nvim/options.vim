@@ -27,7 +27,8 @@ set updatetime=2000
 set virtualedit=all
 set nowrap
 
-"autocmd FileType c,cpp,sh,bash,zsh,fstab runtime ftplugin/man.vim
+autocmd FileType c,cpp,sh,bash,zsh,fstab runtime ftplugin/man.vim
+autocmd FileType c,cpp set cindent
 autocmd BufReadPost,VimEnter *.h normal! zR
 
 autocmd StdinReadPost * set buftype=nofile
