@@ -24,6 +24,13 @@ let g:linediff_second_buffer_command = 'rightbelow vnew'
 
 " bkad/CamelCaseMotion
 
+" rhysd/vim-clang-format
+let g:clang_format#detect_style_file = 1
+let g:clang_format#extra_args = '-fallback-style=none'
+
+" junegunn
+let g:goyo_width = 180
+
 " jlanzarotta/bufexplorer
 let g:bufExplorerDisableDefaultKeyMapping = 1
 let g:bufExplorerFindActive = 0

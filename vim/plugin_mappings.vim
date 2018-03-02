@@ -33,6 +33,28 @@ vmap <C-x> <Plug>VisualDecrement \| gv
 " bkad/CamelCaseMotion
 call camelcasemotion#CreateMotionMappings('<Leader>')
 
+" rhysd/vim-clang-format
+autocmd FileType c,cpp nnoremap <buffer> <Leader><Leader>F :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp vnoremap <buffer> <Leader>F :ClangFormat<CR>
+
+" junegunn
+function! s:goyo_enter()
+  set noshowmode
+  set noshowcmd
+  colorscheme seoul256
+  Limelight
+endfunction
+
+function! s:goyo_leave()
+  Limelight!
+  colorscheme default
+  set showcmd
+  set showmode
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
 " jlanzarotta/bufexplorer
 map <silent> <F2> :BufExplorer<CR>
 map <S-S> :split<CR>:BufExplorer<CR>

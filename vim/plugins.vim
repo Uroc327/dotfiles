@@ -28,7 +28,11 @@ Plugin 'Raimondi/delimitMate'
 "Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'triglav/vim-visual-increment'
 Plugin 'bkad/CamelCaseMotion'
+Plugin 'rhysd/vim-clang-format'
 "Plugin 'bronson/vim-visual-star-search'
+Plugin 'junegunn/Goyo.vim'
+Plugin 'junegunn/limelight.vim'
+Plugin 'junegunn/seoul256.vim'
 
 " Browsing
 Plugin 'jlanzarotta/bufexplorer'
@@ -53,8 +57,9 @@ Plugin 'Uroc327/vim-numbertoggle'
 "Plugin 'javacomplete'
 
 " Miscellaneous syntax support
-Plugin 'openscad.vim'
 Plugin 'kelwin/vim-smali'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'openscad.vim'
 
 call vundle#end()
 
