@@ -19,7 +19,7 @@ set shiftwidth=4
 set showcmd
 set sidescroll=1
 set sidescrolloff=2
-" smarttab
+set nosmarttab
 set nostartofline
 set tabstop=4
 set undofile

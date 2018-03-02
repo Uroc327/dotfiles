@@ -41,6 +41,26 @@ endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
+" lervag/vimtex
+let g:vimtex_enabled = 1
+let g:vimtex_mappings_enabled = 0
+let g:vimtex_imaps_enabled = 0
+let g:vimtex_format_enabled = 1
+let g:vimtex_quickfix_method = 'pplatex'
+let g:vimtex_compiler_latexmk = {
+  \ 'backend': 'nvim',
+  \ 'background': 1,
+  \ 'build_dir': 'out/vim',
+  \ 'callback': 1,
+  \ 'continuous': 0,
+  \ 'executable': 'latexmk',
+  \ 'options': [
+  \   '-xelatex',
+  \   '-synctex=1',
+  \   '-interacton=nonstopmode',
+  \ ],
+  \}
+
 " Shougo/denite.vim
 call denite#custom#source('buffer,line,grep', 'matchers', ['matcher_fuzzy'])
 call denite#custom#option('default', 'split', 'no')
@@ -59,14 +79,10 @@ call denite#custom#var('grep', 'final_opts', [])
 " tpope/vim-fugitive
 
 " Completion
-let g:deoplete#enable_at_startup = 0
-let g:deoplete#disable_auto_complete = 1
-call deoplete#custom#set('_', 'matchers', ['matcher_head'])
-let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
-let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
-let g:deoplete#sources#clang#std = { 'cpp': 'c++14' }
-" detect clang complete database
-" do not open scratch buffer
+let g:LanguageClient_serverCommands = {
+  \ 'cpp': ['cquery', '--log-file=/tmp/cq.log']
+  \ }
+let g:LanguageClient_settingsPath = "/data/dotfiles/nvim/LanguageClient_settings.json"
 
 " openscad.vim
 

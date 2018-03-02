@@ -35,6 +35,9 @@ vmap <C-x> <Plug>VisualDecrement \| gv
 " Uroc327/vim-number-toggle
 let g:NumberToggleTrigger = '<Leader>n'
 
+" lervag/vimtex
+autocmd FileType tex,latex,bib map <silent> <buffer> <S-F7> :<C-u>VimtexCompile<CR>
+
 " Shougo/denite.vim
 map <F2> :<C-u>Denite buffer<CR>
 map <S-S> :split<CR><F2>
