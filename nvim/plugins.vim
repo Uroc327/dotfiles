@@ -4,6 +4,13 @@ set runtimepath+=~data/dotfiles/nvim/dein/repos/github.com/Shougo/dein.vim
 
 call dein#begin('~data/dotfiles/nvim/dein')
 
+" FIXME:
+" - denite:
+"   - screws up cursorline and list
+"   - different highlight for Search group
+" - targets:
+"   - argument text object screws up buffer
+
 " dein
 call dein#add('Shougo/dein.vim')
 
@@ -14,6 +21,7 @@ call dein#add('kana/vim-operator-user')
 call dein#add('AndrewRadev/linediff.vim')
 call dein#add('simnalamburt/vim-mundo')
 call dein#add('haya14busa/incsearch.vim')
+call dein#add('jremmen/vim-ripgrep')
 " vim-airline
 
 " Text objects
@@ -34,6 +42,8 @@ call dein#add('Uroc327/vim-numbertoggle')
 " tpope/vim-surround
 " osyo-manga/vim-snowdrop vs libclang-vim/libclang-vim with corresponding plugins
 " chromatica.nvim / clighter / color_coded
+" tpope/sleuth.vim or myint/indent-finder for automatically setting expandtab and shiftwidth
+" sickill/vim-pasta
 
 " writing
 call dein#add('junegunn/goyo.vim')

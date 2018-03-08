@@ -12,6 +12,9 @@ let g:mundo_preview_bottom = 1
 
 " haya14busa/incsearch.vim
 
+" jremmen/vim-ripgrep
+let g:rg_command = 'rg --vimgrep -g!submodules/girolink-spa -i'
+
 " bkad/CamelCaseMotion
 
 " cohama/lexima.vim
@@ -68,9 +71,9 @@ call denite#custom#option('default', 'highlight_mode_insert', 'Search')
 call denite#custom#option('default', 'highlight_mode_normal', 'Search')
 call denite#custom#option('line', 'auto_highlight', v:true)
 call denite#custom#var('grep', 'command', ['rg'])
-call denite#custom#var('grep', 'default_opts', ['--vimgrep', '--no-heading', '-g!submodules/girolink-spa'])
+call denite#custom#var('grep', 'default_opts', ['--vimgrep', '-g!submodules/girolink-spa'])
 call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+call denite#custom#var('grep', 'pattern_opt', ['-i', '--regexp'])
 call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
 
@@ -83,6 +86,18 @@ let g:LanguageClient_serverCommands = {
   \ 'cpp': ['cquery', '--log-file=/tmp/cq.log']
   \ }
 let g:LanguageClient_settingsPath = "/data/dotfiles/nvim/LanguageClient_settings.json"
+augroup my_cm_setup
+  autocmd!
+  autocmd User CmSetup call cm#register_source({
+        \ 'name' : 'vimtex',
+        \ 'priority': 8,
+        \ 'scoping': 1,
+        \ 'scopes': ['tex'],
+        \ 'abbreviation': 'tex',
+        \ 'cm_refresh_patterns': g:vimtex#re#ncm,
+        \ 'cm_refresh': {'omnifunc': 'vimtex#complete#omnifunc'},
+        \ })
+augroup END
 
 " openscad.vim
 
