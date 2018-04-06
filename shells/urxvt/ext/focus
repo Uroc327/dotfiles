@@ -1,0 +1,58 @@
+#vim: ft=perl
+
+use strict;
+use warnings;
+use Time::HiRes qw(usleep);
+
+
+# NOTE: Default xterm/iTerm2 enable/disable: CSI ? 1004 h/l
+#   e.g.: <Esc>[?1004l / <Esc>[?1004h
+
+# ENABLE:  echo -ne "\033]777;focus;on\007"
+# DISABLE: echo -ne "\033]777;focus;off\007"
+
+# Escape sequences could be custom, like:
+# my $csi_in = "\033[UlFocusIn";
+# my $csi_out = "\033[UlFocusOut";
+
+my $csi_in = "\033[I";
+my $csi_out = "\033[O";
+
+sub on_start {
+    my($self) = @_;
+    $self->{focus_activated} = 0;
+    $self->{has_focus} = 0;
+}
+
+sub on_osc_seq_perl {
+	my ($self, $osc, $resp) = @_;
+
+	# Only act on the "\033]777;focus;XXX\007" sequence
+	return unless $osc =~ s/^focus;//;
+	# Note the subscription/unsubscription
+	$self->{focus_activated} = $osc eq 'on' ? 1 : 0;
+	# If subscribed and the terminal has focus, send first focus event to the program
+	if (($self->{focus_activated}) && ($self->{has_focus})) {
+		usleep(16000);
+		$self->tt_write($csi_in);
+	}
+}
+
+sub on_focus_in {
+    my($self) = @_;
+    $self->{has_focus} = 1;
+    if ($self->{focus_activated}) {
+        # Delay this event 16 ms, so it is after the focus_out from the previous window.
+        usleep(16000);
+        $self->tt_write($csi_in);
+    }
+}
+
+sub on_focus_out {
+    my($self) = @_;
+    $self->{has_focus} = 0;
+    if ($self->{focus_activated}) {
+        $self->tt_write($csi_out);
+    }
+}
+

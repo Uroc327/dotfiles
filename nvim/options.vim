@@ -31,6 +31,12 @@ autocmd FileType c,cpp,sh,bash,zsh,fstab runtime ftplugin/man.vim
 autocmd FileType c,cpp set cindent
 autocmd BufReadPost,VimEnter *.h normal! zR
 
+" quickfix on bottom
+autocmd FileType qf wincmd J
+
+" check if file has changed, when a split/window gains focus
+autocmd FocusGained * :checktime
+
 autocmd StdinReadPost * set buftype=nofile
 
 let mapleader = ","

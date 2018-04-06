@@ -8,8 +8,11 @@ call dein#begin('~data/dotfiles/nvim/dein')
 " - denite:
 "   - screws up cursorline and list
 "   - different highlight for Search group
+"   - multiple denites open at the same time?
 " - targets:
 "   - argument text object screws up buffer
+" - Goyo:
+"   - work with splits
 
 " dein
 call dein#add('Shougo/dein.vim')
@@ -23,6 +26,7 @@ call dein#add('simnalamburt/vim-mundo')
 call dein#add('haya14busa/incsearch.vim')
 call dein#add('jremmen/vim-ripgrep')
 " vim-airline
+" vim-qf or QFEnter to place quickfix window under current split and open quickfix selection in correct window (current behavior: open quickfix under the bottom-right split and open quickfix selection in the window directly above)
 
 " Text objects
 call dein#add('wellle/targets.vim')
