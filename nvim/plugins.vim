@@ -25,6 +25,7 @@ call dein#add('vim-scripts/argtextobj.vim')
 call dein#add('cohama/lexima.vim')
 call dein#add('sbdchd/neoformat')
 call dein#add('tpope/vim-unimpaired')
+"call dein#add('vim-abolish') handle multiple versions of the same word
 call dein#add('triglav/vim-visual-increment')
 call dein#add('Uroc327/vim-numbertoggle')
 " godlygeek/tabular
@@ -37,7 +38,7 @@ call dein#add('Uroc327/vim-numbertoggle')
 " writing
 call dein#add('junegunn/goyo.vim')
 call dein#add('junegunn/limelight.vim')
-call dein#add('lervag/vimtex')
+"call dein#add('lervag/vimtex')
 
 " Browsing
 call dein#add('Shougo/denite.nvim')

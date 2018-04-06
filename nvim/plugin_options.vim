@@ -21,7 +21,7 @@ let g:mundo_preview_bottom = 1
 " triglav/vim-visual-increment
 
 " jungeunn/goyo.vim
-let g:goyo_width = 180
+let g:goyo_width = 150
 
 " junegunn/limelight.vim
 function! s:goyo_enter()
