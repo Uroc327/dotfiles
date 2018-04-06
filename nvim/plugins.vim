@@ -1,8 +1,7 @@
 " vim: set et sw=2:
 
-set runtimepath+=~data/dotfiles/nvim/dein/repos/github.com/Shougo/dein.vim
-
-call dein#begin('~data/dotfiles/nvim/dein')
+let s:dein_path = '~data/appdata/' . $USER . '-nvim_dein'
+exec 'set runtimepath+=' . s:dein_path . '/repos/github.com/Shougo/dein.vim'
 
 " FIXME:
 " - denite:
@@ -13,6 +12,8 @@ call dein#begin('~data/dotfiles/nvim/dein')
 "   - argument text object screws up buffer
 " - Goyo:
 "   - work with splits
+
+call dein#begin(s:dein_path)
 
 " dein
 call dein#add('Shougo/dein.vim')
