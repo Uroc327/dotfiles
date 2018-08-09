@@ -25,6 +25,7 @@ call dein#add('kana/vim-operator-user')
 call dein#add('AndrewRadev/linediff.vim')
 call dein#add('simnalamburt/vim-mundo')
 call dein#add('haya14busa/incsearch.vim')
+" markonm/traces.vim
 call dein#add('jremmen/vim-ripgrep')
 " vim-airline
 " vim-qf or QFEnter to place quickfix window under current split and open quickfix selection in correct window (current behavior: open quickfix under the bottom-right split and open quickfix selection in the window directly above)
@@ -88,6 +89,7 @@ call dein#add('gentoo/gentoo-syntax')
 call dein#add('vim-scripts/openscad.vim')
 call dein#add('junegunn/seoul256.vim')
 call dein#add('leafgarland/typescript-vim')
+call dein#add('manquetin/vim-rmtoo')
 call dein#add('kelwin/vim-smali')
 
 " star search for visual block
