@@ -82,10 +82,6 @@ call denite#custom#var('grep', 'final_opts', [])
 " tpope/vim-fugitive
 
 " Completion
-let g:LanguageClient_serverCommands = {
-  \ 'cpp': ['cquery', '--log-file=/tmp/cq.log']
-  \ }
-let g:LanguageClient_settingsPath = "/data/dotfiles/nvim/LanguageClient_settings.json"
 "augroup my_cm_setup
 "  autocmd!
 "  autocmd User CmSetup call cm#register_source({
