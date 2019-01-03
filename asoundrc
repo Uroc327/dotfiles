@@ -1,0 +1,18 @@
+#pcm.!default "plughw:2,10"
+##ctl.!default { type hw; card HDMI_1; }
+#ctl.!default { type hw; card PCH; }
+
+pcm.hdmi_hw {
+  type hw
+  card 2
+  device 10
+}
+
+pcm.hdmi_complete {
+  type softvol
+  slave.pcm hdmi_hw
+  control.name hdmi_volume
+  control.card 2
+}
+
+pcm.!default hdmi_complete
