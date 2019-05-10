@@ -20,8 +20,11 @@ call dein#add('Shougo/dein.vim')
 
 " libs
 call dein#add('kana/vim-operator-user')
+call dein#add('roxma/nvim-yarp')
+call dein#add('tpope/vim-dispatch')
 
 " Vim miscellaneous
+call dein#add('dhruvasagar/vim-zoom')
 call dein#add('AndrewRadev/linediff.vim')
 call dein#add('simnalamburt/vim-mundo')
 call dein#add('haya14busa/incsearch.vim')
@@ -29,6 +32,7 @@ call dein#add('haya14busa/incsearch.vim')
 call dein#add('jremmen/vim-ripgrep')
 " vim-airline
 " vim-qf or QFEnter to place quickfix window under current split and open quickfix selection in correct window (current behavior: open quickfix under the bottom-right split and open quickfix selection in the window directly above)
+" szw/vim-maximizer
 
 " Text objects
 call dein#add('wellle/targets.vim')
@@ -38,6 +42,7 @@ call dein#add('vim-scripts/argtextobj.vim')
 " Code movement and editing
 call dein#add('cohama/lexima.vim')
 call dein#add('sbdchd/neoformat')
+call dein#add('tpope/vim-sleuth')
 call dein#add('tpope/vim-unimpaired')
 "call dein#add('vim-abolish') handle multiple versions of the same word
 call dein#add('triglav/vim-visual-increment')
@@ -47,8 +52,8 @@ call dein#add('Uroc327/vim-numbertoggle')
 " terryma/vim-multiple-cursors
 " tpope/vim-surround
 " osyo-manga/vim-snowdrop vs libclang-vim/libclang-vim with corresponding plugins
+" neco-ghc and ghcmod-vim (given haskell-ide-engine+LanguageClient-neovim does not support include completion, type info ...)
 " chromatica.nvim / clighter / color_coded
-" tpope/sleuth.vim or myint/indent-finder for automatically setting expandtab and shiftwidth
 " sickill/vim-pasta
 
 " writing
@@ -68,10 +73,16 @@ call dein#add('tpope/vim-fugitive')
 
 " Completion
 call dein#add('autozimu/LanguageClient-neovim', { 'rev': 'next', 'build': 'bash install.sh' })
-call dein#add('roxma/nvim-completion-manager')
+call dein#add('ncm2/ncm2')
+call dein#add('ncm2/ncm2-bufword')
+call dein#add('ncm2/ncm2-path')
+call dein#add('ncm2/ncm2-github')
+call dein#add('ncm2/ncm2-vim')
 call dein#add('Shougo/neco-vim')
-" Shougo/neoinclude.vim
+call dein#add('eagletmt/neco-ghc')
+" Shougo/neoinclude.vim + ncm2-neoinclude
 " Shougo/neosnippet.vim
+" ncm2/ncm2-pyclang
 
 " Shell
 " Shougo/Vimshell.vim
@@ -82,15 +93,23 @@ call dein#add('Shougo/neco-vim')
 " Debugging
 " critiqjo/lldb.nvim
 
-" daeyun/vim-matlab
+" Language Support
+call dein#add('daeyun/vim-matlab')
+call dein#add('tpope/vim-bundler')
+call dein#add('tpope/vim-rails')
+
 
 " Highlighting
 call dein#add('gentoo/gentoo-syntax')
-call dein#add('vim-scripts/openscad.vim')
-call dein#add('junegunn/seoul256.vim')
+call dein#add('kelwin/vim-smali')
 call dein#add('leafgarland/typescript-vim')
 call dein#add('manquetin/vim-rmtoo')
-call dein#add('kelwin/vim-smali')
+call dein#add('vim-scripts/openscad.vim')
+call dein#add('xuhdev/tex-breqn.vim')
+call dein#add('yinflying/matlab.vim')
+
+call dein#add('joshdick/onedark.vim')
+call dein#add('junegunn/seoul256.vim')
 
 " star search for visual block
 " shift star search for regex-or addition

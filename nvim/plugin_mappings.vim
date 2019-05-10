@@ -73,6 +73,12 @@ inoremap <silent><expr> <CR> pumvisible() ? '<C-y><CR>' : '<CR>'
 inoremap <silent> <C-Space> <C-n>
 inoremap <silent> <C-S-Space> <C-p>
 
+" daeyun/vim-matlab
+"autocmd FileType matlab map <silent> <buffer> <F5>   :w<CR>:MatlabCliRunFile<CR>
+autocmd FileType matlab map <silent> <buffer> <S-F5> :MatlabCliRunLine<CR>
+autocmd FileType matlab map <silent> <buffer> <F6>   :MatlabCliHelp<CR>
+
+
 " openscad.vim
 
 " kelwin/vim-smali

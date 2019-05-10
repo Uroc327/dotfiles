@@ -25,6 +25,7 @@
 	po = push origin
 	f = fetch
 	fo = fetch origin
+	fu = fetch upstream
 	br = branch
 	brs = branch -va
 	rb = rebase

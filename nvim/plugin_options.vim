@@ -82,6 +82,10 @@ call denite#custom#var('grep', 'final_opts', [])
 " tpope/vim-fugitive
 
 " Completion
+let g:LanguageClient_serverCommands = {
+    \ 'ruby': ['solargraph', 'stdio'],
+    \ }
+
 "augroup my_cm_setup
 "  autocmd!
 "  autocmd User CmSetup call cm#register_source({
@@ -94,6 +98,9 @@ call denite#custom#var('grep', 'final_opts', [])
 "        \ 'cm_refresh': {'omnifunc': 'vimtex#complete#omnifunc'},
 "        \ })
 "augroup END
+
+" daeyun/vim-matlab
+let g:matlab_auto_mappings = 0
 
 " openscad.vim
 

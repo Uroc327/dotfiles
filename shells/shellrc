@@ -1,4 +1,13 @@
 
+export PATH="$PATH:$HOME/.gem/ruby/2.5.0/bin"
+
+export QT4PREFIX=/opt/qt4
+
+function find-rails-exec()
+{
+	GREP_OPTIONS="--color-always" find . -type f \( -name '*.ru' -or -name '*.rb' -or -name '*.erb' -or -name '*.yml'-or -name '*.js' -or -name '*.erbtex' -or -name Gemfile -or -name Rakefile \) -exec "$@" {} +
+}
+
 function find-cpp-exec()
 {
 	GREP_OPTIONS="--color-always" find . -type f \( -name '*.cpp' -or -name '*h' -or -name Makefile -or -name CMakeLists.txt -or -name '*.sql' \) -exec "$@" {} +

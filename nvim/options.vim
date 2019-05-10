@@ -4,6 +4,7 @@ scriptencoding utf-8
 
 set belloff=all
 set clipboard=unnamed
+set completeopt=menuone,noinsert,noselect
 set display=
 set nofoldenable
 set formatoptions=roqlj

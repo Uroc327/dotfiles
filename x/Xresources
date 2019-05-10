@@ -33,7 +33,7 @@ Xft*hinting:   Full
 
 URxvt.saveLines:       65535
 URxvt.scrollBar:       False
-URxvt.perl-ext-common: default,clipboard,matcher,focus,keyboard-select,-searchable-scrollback
+URxvt.perl-ext-common: default,clipboard,matcher,focus,keyboard-select,-searchable-scrollback,font-size
 URxvt.keysym.M-u:      perl:url-select:select_next
 URxvt.url-launcher:    /usr/bin/chromium
 URxvt.underlineURLs:   False
@@ -42,3 +42,7 @@ URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.keysym.M-c:      perl:clipboard:copy
 URxvt.keysym.M-p:      perl:clipboard:paste
 URxvt.keysym.M-C-p:    perl:clipboard:paste_escaped
+URxvt.keysym.C-Plus:   font-size:increase
+URxvt.keysym.C-Minus:  font-size:decrease
+URxvt.keysym.C-equal:  font-size:reset
+URxvt.keysym.C-slash:  font-size:show
