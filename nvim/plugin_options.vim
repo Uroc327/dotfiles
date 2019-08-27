@@ -85,6 +85,7 @@ call denite#custom#var('grep', 'final_opts', [])
 let g:LanguageClient_serverCommands = {
     \ 'ruby': ['solargraph', 'stdio'],
     \ }
+"  \ 'cpp': ['clangd'],
 
 "augroup my_cm_setup
 "  autocmd!
