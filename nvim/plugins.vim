@@ -70,7 +70,6 @@ call dein#add('junegunn/limelight.vim')
 call dein#add('Shougo/denite.nvim')
 
 " Git
-call dein#add('tpope/vim-git')
 call dein#add('tpope/vim-fugitive')
 
 " Building and linting
@@ -115,6 +114,7 @@ call dein#add('kelwin/vim-smali')
 call dein#add('leafgarland/typescript-vim')
 call dein#add('manquetin/vim-rmtoo')
 call dein#add('neovimhaskell/haskell-vim')
+call dein#add('tpope/vim-git')
 call dein#add('vim-scripts/openscad.vim')
 call dein#add('xuhdev/tex-breqn.vim')
 call dein#add('yinflying/matlab.vim')

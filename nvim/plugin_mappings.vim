@@ -42,18 +42,40 @@ autocmd FileType tex,latex,bib map <silent> <buffer> <S-F7> :<C-u>VimtexCompile<
 map <F2> :<C-u>Denite buffer<CR>
 map <S-S> :split<CR><F2>
 map <M-s> :rightbelow vsplit<CR><F2>
-map <Leader><F2> :exec 'Denite -mode=normal -input=' . expand('%:t:r') . ' buffer'<CR>
+map <Leader><F2> :exec 'Denite -start-filter=false -input=' . expand('%:t:r') . ' buffer'<CR>
 map <Leader>g/ :<C-u>Denite grep<CR>
 map <Leader><Leader>/ :<C-u>Denite line<CR>
 " map <Leader><Leader>m :<C-u>Denite mapping<CR> (with fuzzy matcher)
 
-call denite#custom#map('normal', '<F2>',    '<denite:quit>')
-call denite#custom#map('insert', '<F2>',    '<denite:quit>')
-call denite#custom#map('insert', '<Esc>',   '<denite:enter_mode:normal>')
-call denite#custom#map('insert', '<S-Esc>', '<denite:quit>')
-call denite#custom#map('insert', '<C-Bs>',  '<denite:quit>')
-call denite#custom#map('insert', '<Tab>',   '<denite:move_to_next_line>')
-call denite#custom#map('insert', '<S-Tab>', '<denite:move_to_previous_line>')
+autocmd FileType denite call s:denite_my_settings()
+function! s:denite_my_settings() abort
+  nnoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
+  nnoremap <silent><buffer><expr> i denite#do_map('open_filter_buffer')
+
+  nnoremap <silent><buffer><expr> <Esc> denite#do_map('quit')
+  nnoremap <silent><buffer><expr> <F2> denite#do_map('quit')
+  inoremap <silent><buffer><expr> <F2> denite#do_map('quit')
+  nnoremap <silent><buffer><expr> q denite#do_map('quit')
+
+  nnoremap <silent><buffer><expr> <Space> denite#do_map('toggle_select').'j'
+  nnoremap <silent><buffer><expr> p denite#do_map('do_action', 'preview')
+endfunction
+
+autocmd FileType denite-filter call s:denite_filter_my_settings()
+function! s:denite_filter_my_settings() abort
+  imap <silent><buffer> <S-Esc> <Plug>(denite_filter_quit)
+  inoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
+
+  nnoremap <silent><buffer><expr> <F2> denite#do_map('quit')
+  inoremap <silent><buffer><expr> <F2> denite#do_map('quit')
+endfunction
+
+" [old]
+"call denite#custom#map('insert', '<Esc>',   '<denite:enter_mode:normal>')
+"call denite#custom#map('insert', '<S-Esc>', '<denite:quit>')
+"call denite#custom#map('insert', '<C-Bs>',  '<denite:quit>')
+"call denite#custom#map('insert', '<Tab>',   '<denite:move_to_next_line>')
+"call denite#custom#map('insert', '<S-Tab>', '<denite:move_to_previous_line>')
 " <Leader>s -> toggle sorting between fullpath (default?) sorting and ftime,reverse sorting
 
 " sources:

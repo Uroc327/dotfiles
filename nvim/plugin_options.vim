@@ -68,17 +68,22 @@ let g:vimtex_compiler_latexmk = {
   \}
 
 " Shougo/denite.vim
-call denite#custom#source('buffer,line,grep', 'matchers', ['matcher_fuzzy'])
-call denite#custom#option('default', 'split', 'no')
-call denite#custom#option('default', 'highlight_mode_insert', 'Search')
-call denite#custom#option('default', 'highlight_mode_normal', 'Search')
-call denite#custom#option('line', 'auto_highlight', v:true)
-call denite#custom#var('grep', 'command', ['rg'])
-call denite#custom#var('grep', 'default_opts', ['--vimgrep'])
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', ['-i', '--regexp'])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
+call denite#custom#option("_", {
+  \ 'split': 'no',
+  \ 'start_filter': 'true',
+  \ })
+call denite#custom#var('grep', {
+  \ 'command': ['rg'],
+  \ 'default_opts': ['-i', '--vimgrep', '--no-heading'],
+  \ 'recursive_opts': [],
+  \ 'pattern_opt': ['--regexp'],
+  \ 'separator': ['--'],
+  \ 'final_opts': [],
+  \ })
+
+" [old] hi Search for selected line:
+" call denite#custom#option('default', 'highlight_mode_insert', 'Search')
+" call denite#custom#option('default', 'highlight_mode_normal', 'Search')
 
 " tpope/vim-git
 

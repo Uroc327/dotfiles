@@ -30,6 +30,8 @@ hi DiffDelete  cterm=reverse ctermfg=9   ctermbg=none guifg=#1B1B1B guibg=#E0969
 hi DiffText    cterm=reverse ctermfg=14  ctermbg=none guifg=#1B1B1B guibg=#77DFD8
 hi Todo                      ctermfg=170              guifg=#C678DD
 
+hi! link CursorLine Search
+
 
 " For denite:
 "hi Search                                ctermbg=8    guifg=#1B1B1B guibg=#D0B03C
