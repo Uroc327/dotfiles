@@ -67,11 +67,11 @@ call denite#custom#map('insert', '<S-Tab>', '<denite:move_to_previous_line>')
 " tpope/vim-fugitive
 
 " Completion
-inoremap <silent><expr> <Tab> pumvisible() ? '<C-n>' : '<Tab>'
-inoremap <silent><expr> <S-Tab> pumvisible() ? '<C-p>' : '<S-Tab>'
-inoremap <silent><expr> <CR> pumvisible() ? '<C-y><CR>' : '<CR>'
-inoremap <silent> <C-Space> <C-n>
-inoremap <silent> <C-S-Space> <C-p>
+"inoremap <silent><expr> <Tab> pumvisible() ? '<C-n>' : '<Tab>'
+"inoremap <silent><expr> <S-Tab> pumvisible() ? '<C-p>' : '<S-Tab>'
+"inoremap <silent><expr> <CR> pumvisible() ? '<C-y><CR>' : '<CR>'
+"inoremap <silent> <C-Space> <C-n>
+"inoremap <silent> <C-S-Space> <C-p>
 
 " daeyun/vim-matlab
 "autocmd FileType matlab map <silent> <buffer> <F5>   :w<CR>:MatlabCliRunFile<CR>

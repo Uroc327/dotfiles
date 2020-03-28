@@ -5,6 +5,7 @@ scriptencoding utf-8
 set belloff=all
 set clipboard=unnamed
 set completeopt=menuone,noinsert,noselect
+set conceallevel=0
 set display=
 set nofoldenable
 set formatoptions=roqlj
@@ -41,4 +42,8 @@ autocmd FocusGained * :checktime
 autocmd StdinReadPost * set buftype=nofile
 
 let mapleader = ","
+
+let g:loaded_node_provider = 0
+let g:loaded_python_provider = 0
+let g:loaded_ruby_provider = 0
 
