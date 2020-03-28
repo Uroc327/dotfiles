@@ -18,7 +18,7 @@ call camelcasemotion#CreateMotionMappings('<Leader>')
 " cohama/lexima.vim
 
 " sbdchd/noeformat
-autocmd FileType c,cpp nnoremap <buffer> <Leader><Leader>F :<C-u>Neoformat<CR>
+nnoremap <Leader><Leader>F :<C-u>Neoformat<CR>
 autocmd FileType c     vnoremap <buffer> <Leader>F :NeoFormat! c
 autocmd FileType cpp   vnoremap <buffer> <Leader>F :NeoFormat! cpp
 

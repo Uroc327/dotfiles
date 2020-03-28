@@ -19,6 +19,9 @@ let g:rg_command = 'rg --vimgrep -i'
 
 " cohama/lexima.vim
 
+" sbdchd/neoformat
+let g:neoformat_enabled_haskell = ['hfmt']
+
 " tpope/vim-unimpaired
 
 " triglav/vim-visual-increment

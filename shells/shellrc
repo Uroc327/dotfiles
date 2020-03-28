@@ -13,3 +13,8 @@ function find-cpp-exec()
 	GREP_OPTIONS="--color-always" find . -type f \( -name '*.cpp' -or -name '*h' -or -name Makefile -or -name CMakeLists.txt -or -name '*.sql' \) -exec "$@" {} +
 }
 
+function find-hs-exec()
+{
+	GREP_OPTIONS="--color-always" find . -type f \( -name '*.hs' -or -name '*.yaml' -or -name '*.cabal' -or -name '*.md' \) -exec "$@" {} +
+}
+
