@@ -72,6 +72,7 @@ call denite#custom#option("_", {
   \ 'split': 'no',
   \ 'start_filter': 'true',
   \ })
+call denite#custom#source('_', 'matchers', ['matcher/fuzzy'])
 call denite#custom#var('grep', {
   \ 'command': ['rg'],
   \ 'default_opts': ['-i', '--vimgrep', '--no-heading'],
@@ -90,22 +91,12 @@ call denite#custom#var('grep', {
 " tpope/vim-fugitive
 
 " Completion
-let g:LanguageClient_serverCommands = {
-    \ 'ruby': ['solargraph', 'stdio'],
-    \ }
-
-"augroup my_cm_setup
-"  autocmd!
-"  autocmd User CmSetup call cm#register_source({
-"        \ 'name' : 'vimtex',
-"        \ 'priority': 8,
-"        \ 'scoping': 1,
-"        \ 'scopes': ['tex'],
-"        \ 'abbreviation': 'tex',
-"        \ 'cm_refresh_patterns': g:vimtex#re#ncm,
-"        \ 'cm_refresh': {'omnifunc': 'vimtex#complete#omnifunc'},
-"        \ })
-"augroup END
+"CocInstall coc-clangd
+"CocInstall coc-git
+"CocInstall coc-json
+"CocInstall coc-python
+"CocInstall coc-texlab
+"CocInstall coc-vimlsp
 
 " daeyun/vim-matlab
 let g:matlab_auto_mappings = 0
@@ -114,3 +105,10 @@ let g:matlab_auto_mappings = 0
 
 " kelwin/vim-smali
 
+" neovimhaskell/haskell-vim
+let g:haskell_enable_quantification = 1
+let g:haskell_enable_recursivedo = 1
+let g:haskell_enable_arrowsyntax = 1
+let g:haskell_enable_pattern_synonyms = 1
+let g:haskell_enable_typeroles = 1
+let g:haskell_enable_static_pointers = 1

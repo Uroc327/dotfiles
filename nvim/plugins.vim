@@ -76,6 +76,7 @@ call dein#add('tpope/vim-fugitive')
 " neomake/neomake (vs. ale?)
 
 " Completion
+call dein#add('neoclide/coc.nvim', {'merged': 0, 'rev': 'release'})
 "call dein#add('autozimu/LanguageClient-neovim', { 'rev': 'next', 'build': 'bash install.sh' })
 "call dein#add('ncm2/ncm2')
 "call dein#add('ncm2/ncm2-bufword')
@@ -87,7 +88,6 @@ call dein#add('tpope/vim-fugitive')
 " Shougo/neoinclude.vim + ncm2-neoinclude
 " Shougo/neosnippet.vim
 " ncm2/ncm2-pyclang
-" Coc.nvim  https://kimpers.com/vim-intelligent-autocompletion/
 " Shougo/echodoc.vim (with coc support)
 " For Haskell: http://marco-lopes.com/articles/Vim-and-Haskell-in-2019/ https://mendo.zone/fun/neovim-setup-haskell/
 
@@ -124,7 +124,7 @@ call dein#add('junegunn/seoul256.vim')
 
 " star search for visual block
 " shift star search for regex-or addition
-" tagbar/outline (using unite? using language server?)
+" tagbar/outline (using unite? using language server?) :h gO
 " jump to definition, declaration, reference
 " when showing undo tree, dim all non-related buffers
 " toggling relative numbers per buffer

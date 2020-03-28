@@ -89,11 +89,44 @@ endfunction
 " tpope/vim-fugitive
 
 " Completion
-"inoremap <silent><expr> <Tab> pumvisible() ? '<C-n>' : '<Tab>'
-"inoremap <silent><expr> <S-Tab> pumvisible() ? '<C-p>' : '<S-Tab>'
-"inoremap <silent><expr> <CR> pumvisible() ? '<C-y><CR>' : '<CR>'
-"inoremap <silent> <C-Space> <C-n>
-"inoremap <silent> <C-S-Space> <C-p>
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
+inoremap <expr> <S-Tab> pumvisible() ?  "\<C-p>" : "\<S-Tab>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline(.)[col - 1] =~# '\s'
+endfunction
+
+" Use <C-Space> to trigger completion.
+inoremap <silent><expr> <C-Space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim', 'help', 'fstab'], &filetype) >= 0)
+    normal! K
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " daeyun/vim-matlab
 "autocmd FileType matlab map <silent> <buffer> <F5>   :w<CR>:MatlabCliRunFile<CR>

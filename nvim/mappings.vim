@@ -25,48 +25,6 @@ function! <SID>BlinkMatch(blinktime)
   redraw
 endfunction
 
-function! <SID>PyHelp(object)
-  if &filetype != "pyhelp"
-    let thiswin = winnr()
-    exe "normal! \<C-W>b"
-    if winnr() > 1
-      exe "normal! " . thiswin . "\<C-W>w"
-      while 1
-        if &filetype == "pyhelp"
-          break
-        endif
-        exe "normal! \<C-W>w"
-        if thiswin == winnr()
-          break
-        endif
-      endwhile
-    endif
-    if &filetype != "pyhelp"
-      new
-      setl nonumber foldcolumn=0
-    endif
-  endif
-
-  silent exec "edit $HOME/" . a:object . "~"
-  setl buftype=nofile noswapfile
-  setl modifiable nonumber norelativenumber nofoldenable
-  silent exec "norm 1GdG"
-
-  silent exec "r!python -c \"help('" . a:object . "')\" | col -b"
-
-  while getline(1) =~ '^\s*$'
-    silent keepj norm ggdd
-  endwhile
-  while getline('$') =~ '^\s*$'
-    silent keepj norm Gdd
-  endwhile
-  1
-
-  setl filetype=pyhelp nomodified
-  setl bufhidden=hide
-  setl nobuflisted
-endfunction
-
 " thanks to http://stackoverflow.com/a/6271254/1857229
 function! <SID>GetVisualSelection()
   let [lnum1, col1] = getpos("'<")[1:2]
@@ -125,29 +83,23 @@ map <silent> <F1> :call <SID>StripTrailingWhitespaces()<CR>
 imap <silent> <F1> <Esc>:call <SID>StripTrailingWhitespaces()<CR>a
 
 " F5 to build/exec
-autocmd FileType tex           map  <buffer> <F5> :w<CR>:!make_latex.sh %<CR>
+autocmd FileType tex   map  <buffer> <F5> :w<CR>:!make_latex.sh %<CR>
 
 " S-F5 to REPL
-autocmd Filetype vim           map  <buffer> <S-F5> :exec ':' . getline('.')<CR>
-autocmd Filetype vim           map  <buffer> <F15> :exec ':' . getline('.')<CR>
+autocmd Filetype vim   map  <buffer> <S-F5> :exec ':' . getline('.')<CR>
+autocmd Filetype vim   map  <buffer> <F15> :exec ':' . getline('.')<CR>
 
-" F6 to get help
-autocmd FileType c,cpp         map  <silent> <buffer> <F6> :exe "Man" 3 expand('<cword>')<CR>
-autocmd FileType c,cpp         vmap <silent> <buffer> <F6> :exe "Man" 3 <SID>GetVisualSelection()<CR>
-autocmd FileType sh,bash,zsh   map  <silent> <buffer> <F6> :exe "Man" 1 expand('<cword>')<CR>
-autocmd FileType sh,bash,zsh   vmap <silent> <buffer> <F6> :exe "Man" 1 <SID>GetVisualSelection()<CR>
-autocmd FileType fstab         map  <silent> <buffer> <F6> :Man 5 fstab<CR>
-autocmd FileType vim,help      map  <silent> <buffer> <F6> :exe "h" expand('<cword>')<CR>
-autocmd FileType vim,help      vmap <silent> <buffer> <F6> :exe "h" <SID>GetVisualSelection()<CR>
-autocmd FileType python,pyhelp map  <silent> <buffer> <F6> :call <SID>PyHelp(expand('<cword>'))<CR>
-autocmd FileType python,pyhelp vmap <silent> <buffer> <F6> :call <SID>PyHelp(<SID>GetVisualSelection())<CR>
+" K to get help (default builtin with man or vimhelp)
+autocmd FileType c,cpp map  <silent> <buffer> <Leader>K :exe "Man" 3 expand('<cword>')<CR>
+autocmd FileType c,cpp vmap <silent> <buffer> <Leader>K :exe "Man" 3 <SID>GetVisualSelection()<CR>
+autocmd FileType fstab map  <silent> <buffer> K :Man 5 fstab<CR>
 
 " filetype man page: see also ebuild(1) ebuild(5)
 " makefile: open browser??
 
 for i in range(1, 9)
-  execute 'autocmd FileType c,cpp,sh,bash,zsh,fstab map  <silent> <buffer> <Leader>' . i . '<F6> :exe "Man" ' . i . ' expand("<cword>")<CR>'
-  execute 'autocmd FileType c,cpp,sh,bash,zsh,fstab vmap <silent> <buffer> <Leader>' . i . '<F6> :exe "Man" ' . i . ' <SID>GetVisualSelection()<CR>'
+  execute 'autocmd FileType c,cpp,sh,bash,zsh,fstab map  <silent> <buffer> <Leader>' . i . 'K :exe "Man" ' . i . ' expand("<cword>")<CR>'
+  execute 'autocmd FileType c,cpp,sh,bash,zsh,fstab vmap <silent> <buffer> <Leader>' . i . 'K :exe "Man" ' . i . ' <SID>GetVisualSelection()<CR>'
 endfor
 
 map <silent> <F7> :copen<CR>
