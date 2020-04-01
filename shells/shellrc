@@ -1,5 +1,5 @@
 
-export PATH="$PATH:$HOME/.gem/ruby/2.5.0/bin"
+export PATH="$PATH:$HOME/.local/bin:$HOME/.gem/ruby/2.5.0/bin"
 
 export QT4PREFIX=/opt/qt4
 
