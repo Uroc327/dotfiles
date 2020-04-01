@@ -3,14 +3,32 @@ export PATH="$PATH:$HOME/.local/bin:$HOME/.gem/ruby/2.5.0/bin"
 
 export QT4PREFIX=/opt/qt4
 
-function find-rails-exec()
+function prj-namestring()
 {
-	GREP_OPTIONS="--color-always" find . -type f \( -name '*.ru' -or -name '*.rb' -or -name '*.erb' -or -name '*.yml'-or -name '*.js' -or -name '*.erbtex' -or -name Gemfile -or -name Rakefile \) -exec "$@" {} +
+	local CPP_EXT=(cpp h cmake sql proto mk)
+	local TS_EXT=(js ts tsx)
+	local JAVA_EXT=(kt java gradle gradle.kts)
+	local CONFIG_EXT=(xsd xml yml yaml)
+	local RAILS_EXT=(ru rb erb yml js erbtex)
+
+	local CPP_FILES=(CMakeLists.txt Dockerfile Makefile)
+	local RAILS_FILES=(Gemfile Rakefile)
+
+	echo -n "-name .gitlab-ci.yml"
+
+	for f in $CPP_EXT $TS_EXT $JAVA_EXT $CONFIG_EXT $RAILS_EXT ; do
+		echo -n " -or -name '*.$f'"
+	done
+
+	for f in $CPP_FILES $RAILS_FILES ; do
+		echo -n " -or -name $f"
+	done
 }
 
-function find-cpp-exec()
+function find-prj-exec()
 {
-	GREP_OPTIONS="--color-always" find . -type f \( -name '*.cpp' -or -name '*h' -or -name Makefile -or -name CMakeLists.txt -or -name '*.sql' \) -exec "$@" {} +
+	#GREP_OPTIONS="--color=always" find . -type f \( $(prj-namestring) \) -not -path '*node_modules*' -exec "$@" {} +
+	GREP_OPTIONS="--color=always" find . -type f \( -name .gitlab-ci.yml -or -name '*.cpp' -or -name '*.h' -or -name '*.cmake' -or -name '*.sql' -or -name '*.proto' -or -name '*.mk' -or -name '*.js' -or -name '*.ts' -or -name '*.tsx' -or -name '*.kt' -or -name '*.java' -or -name '*.gradle' -or -name '*.gradle.kts' -or -name '*.xsd' -or -name '*.xml' -or -name '*.yml' -or -name '*.yaml' -or -name '*.ru' -or -name '*.rb' -or -name '*.erb' -or -name '*.yml' -or -name '*.js' -or -name '*.erbtex' -or -name CMakeLists.txt -or -name Dockerfile -or -name Makefile -or -name Gemfile -or -name Rakefile \) -not -path '*node_modules*' -exec "$@" {} +
 }
 
 function find-hs-exec()
