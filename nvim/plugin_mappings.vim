@@ -98,7 +98,7 @@ inoremap <expr> <S-Tab> pumvisible() ?  "\<C-p>" : "\<S-Tab>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
-  return !col || getline(.)[col - 1] =~# '\s'
+  return !col || getline('.')[col - 1] =~# '\s'
 endfunction
 
 " Use <C-Space> to trigger completion.
@@ -124,9 +124,6 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " daeyun/vim-matlab
 "autocmd FileType matlab map <silent> <buffer> <F5>   :w<CR>:MatlabCliRunFile<CR>
