@@ -14,6 +14,8 @@ function prj-namestring()
 	local CPP_FILES=(CMakeLists.txt Dockerfile Makefile)
 	local RAILS_FILES=(Gemfile Rakefile)
 
+	local IGNORE_DIRS=(node_modules .stack-work)
+
 	echo -n "-name .gitlab-ci.yml"
 
 	for f in $CPP_EXT $TS_EXT $JAVA_EXT $CONFIG_EXT $RAILS_EXT ; do
@@ -36,3 +38,12 @@ function find-hs-exec()
 	GREP_OPTIONS="--color-always" find . -type f \( -name '*.hs' -or -name '*.yaml' -or -name '*.cabal' -or -name '*.md' \) -exec "$@" {} +
 }
 
+function rex()
+{
+	rg --files | xargs "$@"
+}
+
+function rnv()
+{
+	rg --files $(echo "${@/#/-t }") | xargs nvim
+}
