@@ -39,6 +39,9 @@ autocmd FileType qf wincmd J
 " check if file has changed, when a split/window gains focus
 autocmd FocusGained * :checktime
 
+autocmd FileType haskell compiler stack
+autocmd FileType haskell setlocal makeprg=stack\ build\ --test\ --no-run-tests\ --fast\ --no-terminal
+
 autocmd StdinReadPost * set buftype=nofile
 
 let mapleader = ","

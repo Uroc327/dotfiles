@@ -90,6 +90,10 @@ call denite#custom#var('grep', {
 
 " tpope/vim-fugitive
 
+" Building, linting and testing
+let g:neomake_open_list = 2
+let test#strategy = 'neomake'
+
 " Completion
 "CocInstall coc-clangd
 "CocInstall coc-git

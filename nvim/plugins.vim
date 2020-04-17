@@ -72,8 +72,9 @@ call dein#add('Shougo/denite.nvim')
 " Git
 call dein#add('tpope/vim-fugitive')
 
-" Building and linting
-" neomake/neomake (vs. ale?)
+" Building, linting and testing
+call dein#add('neomake/neomake')
+call dein#add('janko/vim-test')
 
 " Completion
 call dein#add('neoclide/coc.nvim', {'merged': 0, 'rev': 'release'})

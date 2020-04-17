@@ -90,6 +90,9 @@ endfunction
 
 " tpope/vim-fugitive
 
+" Building, linting and testing
+map <F6> :Neomake!<CR>
+
 " Completion
 
 " Use tab for trigger completion with characters ahead and navigate.
