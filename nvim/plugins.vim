@@ -1,6 +1,6 @@
 " vim: set et sw=2:
 
-let s:dein_path = '~data/appdata/' . $USER . '-nvim_dein'
+let s:dein_path = '~/dotfiles/nvim/dein'
 exec 'set runtimepath+=' . s:dein_path . '/repos/github.com/Shougo/dein.vim'
 
 " FIXME:
@@ -93,7 +93,7 @@ call dein#add('neoclide/coc.nvim', {'merged': 0, 'rev': 'release'})
 " For Haskell: http://marco-lopes.com/articles/Vim-and-Haskell-in-2019/ https://mendo.zone/fun/neovim-setup-haskell/
 
 " Interactive Language Integration
-" Vigemus/iron.nvim
+"call dein#add('hkupty/iron.nvim')
 
 " Shell
 " Shougo/Vimshell.vim
@@ -105,6 +105,7 @@ call dein#add('neoclide/coc.nvim', {'merged': 0, 'rev': 'release'})
 " critiqjo/lldb.nvim
 
 " Language Support
+call dein#add('JuliaEditorSupport/julia-vim')
 call dein#add('daeyun/vim-matlab')
 call dein#add('tpope/vim-bundler')
 call dein#add('tpope/vim-rails')
@@ -123,6 +124,7 @@ call dein#add('yinflying/matlab.vim')
 
 call dein#add('joshdick/onedark.vim')
 call dein#add('junegunn/seoul256.vim')
+call dein#add('rakr/vim-one')
 
 " star search for visual block
 " shift star search for regex-or addition

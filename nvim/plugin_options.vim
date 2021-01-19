@@ -98,9 +98,14 @@ let test#strategy = 'neomake'
 "CocInstall coc-clangd
 "CocInstall coc-git
 "CocInstall coc-json
+"CocInstall coc-julia
+"CocInstall coc-lua
 "CocInstall coc-python
 "CocInstall coc-texlab
 "CocInstall coc-vimlsp
+
+" JuliaEditorSupport/julia-vim
+let g:latex_to_unicode_tab = 0
 
 " daeyun/vim-matlab
 let g:matlab_auto_mappings = 0
@@ -116,3 +121,4 @@ let g:haskell_enable_arrowsyntax = 1
 let g:haskell_enable_pattern_synonyms = 1
 let g:haskell_enable_typeroles = 1
 let g:haskell_enable_static_pointers = 1
+
