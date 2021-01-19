@@ -91,7 +91,7 @@ endfunction
 " tpope/vim-fugitive
 
 " Building, linting and testing
-map <F6> :Neomake!<CR>
+map <F5> :Neomake!<CR>
 
 " Completion
 
@@ -118,6 +118,11 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Refactoring
+nmap <silent> <Leader>rn <Plug>(coc-rename)
 
 " Show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>

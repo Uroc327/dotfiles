@@ -83,10 +83,10 @@ map <silent> <F1> :call <SID>StripTrailingWhitespaces()<CR>
 imap <silent> <F1> <Esc>:call <SID>StripTrailingWhitespaces()<CR>a
 
 " F5 to build/exec
-autocmd FileType tex   map  <buffer> <F5> :w<CR>:!make_latex.sh %<CR>
+autocmd FileType tex   noremap  <buffer> <F5> :w<CR>:!make_latex.sh %<CR>
 
-" S-F5 to REPL
-autocmd Filetype vim   map  <buffer> <S-F5> :exec ':' . getline('.')<CR>
+" F6 to REPL
+autocmd Filetype vim   map  <buffer> <F6> :exec ':' . getline('.')<CR>
 autocmd Filetype vim   map  <buffer> <F15> :exec ':' . getline('.')<CR>
 
 " K to get help (default builtin with man or vimhelp)
