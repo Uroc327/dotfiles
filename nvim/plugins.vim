@@ -1,6 +1,6 @@
 " vim: set et sw=2:
 
-let s:dein_path = '~/dotfiles/nvim/dein'
+let s:dein_path = '~data/appdata/' . $USER . '-nvim_dein'
 exec 'set runtimepath+=' . s:dein_path . '/repos/github.com/Shougo/dein.vim'
 
 " FIXME:
