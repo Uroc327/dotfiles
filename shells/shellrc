@@ -1,7 +1,7 @@
 
 export PATH="$PATH:$HOME/.local/bin:$HOME/.gem/ruby/2.5.0/bin"
-
 export QT4PREFIX=/opt/qt4
+export ICAROOT=/opt/Citrix/ICAClient
 
 function prj-namestring()
 {
@@ -45,5 +45,5 @@ function rex()
 
 function rnv()
 {
-	rg --files $(echo "${@/#/-t }") | xargs nvim
+	rg --files --null $(echo "${@/#/-t }") | xargs --null nvim
 }
