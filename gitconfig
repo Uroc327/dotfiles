@@ -33,7 +33,7 @@
 	rbom = rebase origin/master
 	rbod = rebase origin/develop
 	gcprune = gc --aggressive --prune=now
-	resetwd = checkout -f
+	resetwd = reset --hard
 	reset-permissions = !git diff -p -R | grep -E '^(diff|(old|new) mode)' | git apply
 	root = rev-parse --show-toplevel
 	d = diff
