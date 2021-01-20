@@ -24,7 +24,7 @@ function after_x()
 	sleep 2
 
 	xset -b # no system beep
-	xset r rate 170 60
+	xset r rate 170 70
 #	xset r rate 180 80  ppro test
 #	xset r rate 170 130 uli
 
