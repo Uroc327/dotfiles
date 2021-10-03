@@ -74,8 +74,8 @@ if dein#load_state(s:dein_path)
   call dein#add('tpope/vim-fugitive')
 
   " Building, linting and testing
-  call dein#add('neomake/neomake')
-  call dein#add('janko/vim-test')
+  "call dein#add('neomake/neomake')
+  "call dein#add('janko/vim-test')
 
   " Completion
   " Replace Coc with builtin lsp + (nvim-compe / completion-nvim / deoplete / ncm2) when neovim 0.5.0 is out (https://dev.to/take/using-neovim-s-official-lsp-plugin-11n0, https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/julials.lua, https://neovim.io/doc/user/lsp.html, https://jdhao.github.io/2019/11/20/neovim_builtin_lsp_hands_on/, https://discourse.julialang.org/t/neovim-languageserver-jl/37286)
@@ -94,7 +94,7 @@ if dein#load_state(s:dein_path)
   " Shougo/echodoc.vim (with coc support)
   " For Haskell: http://marco-lopes.com/articles/Vim-and-Haskell-in-2019/ https://mendo.zone/fun/neovim-setup-haskell/
 
-  " Interactive Language Integration
+  " REPL Integration
   "call dein#add('hkupty/iron.nvim')
 
   " Shell
@@ -109,28 +109,28 @@ if dein#load_state(s:dein_path)
   " Language Support
   call dein#add('JuliaEditorSupport/julia-vim')
   call dein#add('daeyun/vim-matlab')
-  call dein#add('tpope/vim-bundler')
-  call dein#add('tpope/vim-rails')
+  "call dein#add('tpope/vim-bundler')
+  "call dein#add('tpope/vim-rails')
 
   " Highlighting and Indentation
   call dein#add('gentoo/gentoo-syntax')
-  call dein#add('kelwin/vim-smali')
-  call dein#add('leafgarland/typescript-vim')
-  call dein#add('manquetin/vim-rmtoo')
-  call dein#add('neovimhaskell/haskell-vim')
+  "call dein#add('kelwin/vim-smali')
+  "call dein#add('leafgarland/typescript-vim')
+  "call dein#add('manquetin/vim-rmtoo')
+  "call dein#add('neovimhaskell/haskell-vim')
   call dein#add('tpope/vim-git')
-  call dein#add('udalov/kotlin-vim')
-  call dein#add('vim-scripts/openscad.vim')
+  "call dein#add('udalov/kotlin-vim')
+  "call dein#add('vim-scripts/openscad.vim')
   call dein#add('xuhdev/tex-breqn.vim')
   call dein#add('yinflying/matlab.vim')
 
   call dein#add('joshdick/onedark.vim')
   call dein#add('junegunn/seoul256.vim')
-  call dein#add('rakr/vim-one')
+  "call dein#add('rakr/vim-one')
 
   " star search for visual block
   " shift star search for regex-or addition
-  " tagbar/outline (using unite? using language server?) :h gO
+  " tagbar/outline (using denite? using language server?) :h gO
   " jump to definition, declaration, reference
   " when showing undo tree, dim all non-related buffers
   " toggling relative numbers per buffer
