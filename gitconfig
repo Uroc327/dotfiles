@@ -32,6 +32,7 @@
 	rboc = !git rebase origin/$(git symbolic-ref --short HEAD)
 	rbom = rebase origin/master
 	rbod = rebase origin/develop
+	undomrg = reset --merge ORIG_HEAD
 	gcprune = gc --aggressive --prune=now
 	resetwd = reset --hard
 	reset-permissions = !git diff -p -R | grep -E '^(diff|(old|new) mode)' | git apply

@@ -33,7 +33,9 @@ font pango:monospace 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+for_window [class="Makie"] floating enable
 #for_window [title="Figure*"] floating enable
+#assign [title="Figure*"] 1
 
 #bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 #bindsym XF86MonBrightnessUp exec xbacklight -inc 5

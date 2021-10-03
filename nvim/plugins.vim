@@ -16,122 +16,126 @@ exec 'set runtimepath+=' . s:dein_path . '/repos/github.com/Shougo/dein.vim'
 
 " in case of problems: `:echo dein#rollback("20190509014142")'
 
-call dein#begin(s:dein_path)
+if dein#load_state(s:dein_path)
+  call dein#begin(s:dein_path)
 
-" dein
-call dein#add('Shougo/dein.vim')
+  " dein
+  call dein#add('Shougo/dein.vim')
 
-" libs
-call dein#add('kana/vim-operator-user')
-"call dein#add('roxma/nvim-yarp')
-call dein#add('tpope/vim-dispatch')
+  " libs
+  call dein#add('kana/vim-operator-user')
+  "call dein#add('roxma/nvim-yarp')
+  call dein#add('tpope/vim-dispatch')
 
-" Vim miscellaneous
-"call dein#add('dhruvasagar/vim-zoom') make current buffer 'full-window'
-call dein#add('AndrewRadev/linediff.vim')
-call dein#add('simnalamburt/vim-mundo')
-call dein#add('haya14busa/incsearch.vim')
-" markonm/traces.vim
-call dein#add('jremmen/vim-ripgrep')
-" vim-airline
-" vim-qf or QFEnter to place quickfix window under current split and open quickfix selection in correct window (current behavior: open quickfix under the bottom-right split and open quickfix selection in the window directly above)
-" szw/vim-maximizer
-" dstein64/vim-startuptime
-" justinmk/vim-dirvish
+  " Vim miscellaneous
+  "call dein#add('dhruvasagar/vim-zoom') make current buffer 'full-window'
+  call dein#add('AndrewRadev/linediff.vim')
+  call dein#add('simnalamburt/vim-mundo')
+  call dein#add('haya14busa/incsearch.vim')
+  " markonm/traces.vim
+  call dein#add('jremmen/vim-ripgrep')
+  " vim-airline
+  " vim-qf or QFEnter to place quickfix window under current split and open quickfix selection in correct window (current behavior: open quickfix under the bottom-right split and open quickfix selection in the window directly above)
+  " szw/vim-maximizer
+  " dstein64/vim-startuptime
+  " justinmk/vim-dirvish
 
-" Text objects
-call dein#add('wellle/targets.vim')
-call dein#add('bkad/CamelCaseMotion')
+  " Text objects
+  call dein#add('wellle/targets.vim')
+  call dein#add('bkad/CamelCaseMotion')
 
-" Code movement and editing
-call dein#add('cohama/lexima.vim')
-call dein#add('sbdchd/neoformat')
-call dein#add('tpope/vim-sleuth')
-call dein#add('tpope/vim-unimpaired')
-"call dein#add('vim-abolish') handle multiple versions of the same word
-call dein#add('triglav/vim-visual-increment')
-call dein#add('Uroc327/vim-numbertoggle')
-" godlygeek/tabular
-" osyo-manga/vim-anzu / vim-indexed-search
-" terryma/vim-multiple-cursors
-" machakann/vim-sandwhich (check compatibility with wellle/targets)
-" osyo-manga/vim-snowdrop vs libclang-vim/libclang-vim with corresponding plugins
-" neco-ghc and ghcmod-vim (given haskell-ide-engine+LanguageClient-neovim does not support include completion, type info ...)
-" chromatica.nvim
-" sickill/vim-pasta
-" justinmk/vim-sneak
+  " Code movement and editing
+  call dein#add('cohama/lexima.vim')
+  call dein#add('sbdchd/neoformat')
+  call dein#add('tpope/vim-sleuth')
+  call dein#add('tpope/vim-unimpaired')
+  "call dein#add('vim-abolish') handle multiple versions of the same word
+  call dein#add('triglav/vim-visual-increment')
+  call dein#add('Uroc327/vim-numbertoggle')
+  " godlygeek/tabular
+  " osyo-manga/vim-anzu / vim-indexed-search
+  " terryma/vim-multiple-cursors
+  " machakann/vim-sandwhich (check compatibility with wellle/targets)
+  " osyo-manga/vim-snowdrop vs libclang-vim/libclang-vim with corresponding plugins
+  " neco-ghc and ghcmod-vim (given haskell-ide-engine+LanguageClient-neovim does not support include completion, type info ...)
+  " chromatica.nvim
+  " sickill/vim-pasta
+  " justinmk/vim-sneak
 
-" writing
-call dein#add('junegunn/goyo.vim')
-call dein#add('junegunn/limelight.vim')
-"call dein#add('lervag/vimtex')
+  " writing
+  call dein#add('junegunn/goyo.vim')
+  call dein#add('junegunn/limelight.vim')
+  "call dein#add('lervag/vimtex')
 
-" Browsing
-call dein#add('Shougo/denite.nvim')
+  " Browsing
+  call dein#add('Shougo/denite.nvim')
 
-" Git
-call dein#add('tpope/vim-fugitive')
+  " Git
+  call dein#add('tpope/vim-fugitive')
 
-" Building, linting and testing
-call dein#add('neomake/neomake')
-call dein#add('janko/vim-test')
+  " Building, linting and testing
+  call dein#add('neomake/neomake')
+  call dein#add('janko/vim-test')
 
-" Completion
-call dein#add('neoclide/coc.nvim', {'merged': 0, 'rev': 'release'})
-"call dein#add('autozimu/LanguageClient-neovim', { 'rev': 'next', 'build': 'bash install.sh' })
-"call dein#add('ncm2/ncm2')
-"call dein#add('ncm2/ncm2-bufword')
-"call dein#add('ncm2/ncm2-path')
-"call dein#add('ncm2/ncm2-github')
-"call dein#add('ncm2/ncm2-vim')
-"call dein#add('Shougo/neco-vim')
-"call dein#add('eagletmt/neco-ghc')
-" Shougo/neoinclude.vim + ncm2-neoinclude
-" Shougo/neosnippet.vim
-" ncm2/ncm2-pyclang
-" Shougo/echodoc.vim (with coc support)
-" For Haskell: http://marco-lopes.com/articles/Vim-and-Haskell-in-2019/ https://mendo.zone/fun/neovim-setup-haskell/
+  " Completion
+  " Replace Coc with builtin lsp + (nvim-compe / completion-nvim / deoplete / ncm2) when neovim 0.5.0 is out (https://dev.to/take/using-neovim-s-official-lsp-plugin-11n0, https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/julials.lua, https://neovim.io/doc/user/lsp.html, https://jdhao.github.io/2019/11/20/neovim_builtin_lsp_hands_on/, https://discourse.julialang.org/t/neovim-languageserver-jl/37286)
+  call dein#add('neoclide/coc.nvim', {'merged': 0, 'rev': 'release'})
+  "call dein#add('autozimu/LanguageClient-neovim', { 'rev': 'next', 'build': 'bash install.sh' })
+  "call dein#add('ncm2/ncm2')
+  "call dein#add('ncm2/ncm2-bufword')
+  "call dein#add('ncm2/ncm2-path')
+  "call dein#add('ncm2/ncm2-github')
+  "call dein#add('ncm2/ncm2-vim')
+  "call dein#add('Shougo/neco-vim')
+  "call dein#add('eagletmt/neco-ghc')
+  " Shougo/neoinclude.vim + ncm2-neoinclude
+  " Shougo/neosnippet.vim
+  " ncm2/ncm2-pyclang
+  " Shougo/echodoc.vim (with coc support)
+  " For Haskell: http://marco-lopes.com/articles/Vim-and-Haskell-in-2019/ https://mendo.zone/fun/neovim-setup-haskell/
 
-" Interactive Language Integration
-"call dein#add('hkupty/iron.nvim')
+  " Interactive Language Integration
+  "call dein#add('hkupty/iron.nvim')
 
-" Shell
-" Shougo/Vimshell.vim
+  " Shell
+  " Shougo/Vimshell.vim
 
-" Hex editor
-" Shougo/vinarise.vim or fidian/hexmode
+  " Hex editor
+  " Shougo/vinarise.vim or fidian/hexmode
 
-" Debugging
-" critiqjo/lldb.nvim
+  " Debugging
+  " critiqjo/lldb.nvim
 
-" Language Support
-call dein#add('JuliaEditorSupport/julia-vim')
-call dein#add('daeyun/vim-matlab')
-call dein#add('tpope/vim-bundler')
-call dein#add('tpope/vim-rails')
+  " Language Support
+  call dein#add('JuliaEditorSupport/julia-vim')
+  call dein#add('daeyun/vim-matlab')
+  call dein#add('tpope/vim-bundler')
+  call dein#add('tpope/vim-rails')
 
-" Highlighting and Indentation
-call dein#add('gentoo/gentoo-syntax')
-call dein#add('kelwin/vim-smali')
-call dein#add('leafgarland/typescript-vim')
-call dein#add('manquetin/vim-rmtoo')
-call dein#add('neovimhaskell/haskell-vim')
-call dein#add('tpope/vim-git')
-call dein#add('udalov/kotlin-vim')
-call dein#add('vim-scripts/openscad.vim')
-call dein#add('xuhdev/tex-breqn.vim')
-call dein#add('yinflying/matlab.vim')
+  " Highlighting and Indentation
+  call dein#add('gentoo/gentoo-syntax')
+  call dein#add('kelwin/vim-smali')
+  call dein#add('leafgarland/typescript-vim')
+  call dein#add('manquetin/vim-rmtoo')
+  call dein#add('neovimhaskell/haskell-vim')
+  call dein#add('tpope/vim-git')
+  call dein#add('udalov/kotlin-vim')
+  call dein#add('vim-scripts/openscad.vim')
+  call dein#add('xuhdev/tex-breqn.vim')
+  call dein#add('yinflying/matlab.vim')
 
-call dein#add('joshdick/onedark.vim')
-call dein#add('junegunn/seoul256.vim')
-call dein#add('rakr/vim-one')
+  call dein#add('joshdick/onedark.vim')
+  call dein#add('junegunn/seoul256.vim')
+  call dein#add('rakr/vim-one')
 
-" star search for visual block
-" shift star search for regex-or addition
-" tagbar/outline (using unite? using language server?) :h gO
-" jump to definition, declaration, reference
-" when showing undo tree, dim all non-related buffers
-" toggling relative numbers per buffer
+  " star search for visual block
+  " shift star search for regex-or addition
+  " tagbar/outline (using unite? using language server?) :h gO
+  " jump to definition, declaration, reference
+  " when showing undo tree, dim all non-related buffers
+  " toggling relative numbers per buffer
 
-call dein#end()
+  call dein#end()
+  call dein#save_state()
+endif
 

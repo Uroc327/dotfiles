@@ -105,7 +105,8 @@ let test#strategy = 'neomake'
 "CocInstall coc-vimlsp
 
 " JuliaEditorSupport/julia-vim
-let g:latex_to_unicode_tab = 0
+"let g:latex_to_unicode_tab = 'on'
+"let g:latex_to_unicode_keymap = 1
 
 " daeyun/vim-matlab
 let g:matlab_auto_mappings = 0

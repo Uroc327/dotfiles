@@ -83,7 +83,7 @@ map <silent> <F1> :call <SID>StripTrailingWhitespaces()<CR>
 imap <silent> <F1> <Esc>:call <SID>StripTrailingWhitespaces()<CR>a
 
 " F5 to build/exec
-autocmd FileType tex   noremap  <buffer> <F5> :w<CR>:!make_latex.sh %<CR>
+autocmd FileType tex   noremap  <buffer> <F5> :w<CR>:!make_pdflatex.sh %<CR>
 
 " F6 to REPL
 autocmd Filetype vim   map  <buffer> <F6> :exec ':' . getline('.')<CR>
@@ -117,8 +117,8 @@ map <C-d> :diffthis<CR>
 map <M-d> :diffoff<CR>:set nowrap<CR>
 
 " reselect selection after indenting
-vmap < <gv
-vmap > >gv
+xmap < <gv
+xmap > >gv
 
 " swap characters
 map <Leader>xl xp
@@ -139,7 +139,7 @@ map <Leader><Leader>latin :e! ++enc=latin1<CR>
 
 " folding
 nmap <silent> <Space> @=(foldlevel('.')?'za':"<Space>")<CR>
-vmap <Space> zf
+xmap <Space> zf
 map - zizc
 
 " clear search pattern
