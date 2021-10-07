@@ -2,11 +2,8 @@
 	pager = less -F -X
 [user]
 	name = Constantin Runge
-	username = Uroc327
-	email = c.runge@cssbook.de
-	#name = {{ name }}
-	#username = {{ username }}
-	#email = {{ email }}
+	username = ga42vof
+	email = constantin.runge@tum.de
 [rerere]
 	enabled = true
 [diff]

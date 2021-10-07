@@ -1,3 +1,8 @@
 # Created by newuser for 5.0.7
 
 source ~/.shellrc
+
+compdef _files mx vif via vifa
+compdef _files -/ mcd cdl lss
+
+# bak viv viva

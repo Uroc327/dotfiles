@@ -27,7 +27,9 @@ URxvt*color15: #F7F7F7
 URxvt*background: #1B1B1B
 URxvt*foreground: #F8F8F8
 
-Xft*dpi:       100
+Xft*dpi:       163
+! laptop: Xft*dpi:       157
+! Xft*dpi:       85
 Xft*antialias: True
 Xft*hinting:   Full
 

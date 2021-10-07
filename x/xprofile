@@ -3,13 +3,15 @@
 # xprofile for lightdm
 
 xset -b # no system beep
-xset r rate 170 60
+xset r rate 170 70
 
-parcellite -n &
+#parcellite -d -n &
 
-urxvtd -q -o -f
+#urxvtd -q -o -f
 
-xscreensaver -nosplash &
+#xscreensaver -nosplash &
 
-eval $(ssh-agent)
+#pipewire-pulse &
+
+#eval $(ssh-agent)
 

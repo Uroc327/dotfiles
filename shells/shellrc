@@ -1,41 +1,78 @@
 
-export PATH="$PATH:$HOME/.local/bin:$HOME/.gem/ruby/2.5.0/bin"
-export QT4PREFIX=/opt/qt4
-export ICAROOT=/opt/Citrix/ICAClient
+export CHROME_FLAGS="--enable-features=UseOzonePlatform --ozone-platform=wayland $CHROME_FLAGS"
+export AUTO_PROXY=http://pac.lrz.de
 
-function prj-namestring()
+alias l='ls -CFahlv --color=auto'
+alias .,='cd - > /dev/null'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../../'
+alias ......='cd ../../../../../'
+alias .......='cd ../../../../../../'
+alias ........='cd ../../../../../../../'
+alias .........='cd ../../../../../../../../'
+alias .-l='cd - > /dev/null; l'
+alias ..l='cdl ..'
+alias ...l='cdl ../..'
+alias ....l='cdl ../../..'
+alias .....l='cdl ../../../../'
+alias ......l='cdl ../../../../../'
+alias .......l='cdl ../../../../../../'
+alias ........l='cdl ../../../../../../../'
+alias .........l='cdl ../../../../../../../../'
+alias mf='touch'
+alias md='mkdir -p'
+#alias +x='chmod +x'
+alias c='cat'
+alias g='grep'
+alias p="${PAGER}"
+alias d='diff'
+alias vd='vimdiff'
+alias dm='dmesg'
+alias mk='make'
+alias mkv='make vi'
+alias mkd='make distclean'
+#alias gvi='gvim --servername $$'
+alias gitka='gitk --all'
+alias tiga='tig --all'
+
+function mx()
 {
-	local CPP_EXT=(cpp h cmake sql proto mk)
-	local TS_EXT=(js ts tsx)
-	local JAVA_EXT=(kt java gradle gradle.kts)
-	local CONFIG_EXT=(xsd xml yml yaml)
-	local RAILS_EXT=(ru rb erb yml js erbtex)
-
-	local CPP_FILES=(CMakeLists.txt Dockerfile Makefile)
-	local RAILS_FILES=(Gemfile Rakefile)
-
-	local IGNORE_DIRS=(node_modules .stack-work)
-
-	echo -n "-name .gitlab-ci.yml"
-
-	for f in $CPP_EXT $TS_EXT $JAVA_EXT $CONFIG_EXT $RAILS_EXT ; do
-		echo -n " -or -name '*.$f'"
-	done
-
-	for f in $CPP_FILES $RAILS_FILES ; do
-		echo -n " -or -name $f"
-	done
+	mf "$@"
+	chmod +x "$@"
 }
 
-function find-prj-exec()
+function mcd()
 {
-	#GREP_OPTIONS="--color=always" find . -type f \( $(prj-namestring) \) -not -path '*node_modules*' -exec "$@" {} +
-	GREP_OPTIONS="--color=always" find . -type f \( -name .gitlab-ci.yml -or -name '*.cpp' -or -name '*.h' -or -name '*.cmake' -or -name '*.sql' -or -name '*.proto' -or -name '*.mk' -or -name '*.js' -or -name '*.ts' -or -name '*.tsx' -or -name '*.kt' -or -name '*.java' -or -name '*.gradle' -or -name '*.gradle.kts' -or -name '*.xsd' -or -name '*.xml' -or -name '*.yml' -or -name '*.yaml' -or -name '*.ru' -or -name '*.rb' -or -name '*.erb' -or -name '*.yml' -or -name '*.js' -or -name '*.erbtex' -or -name CMakeLists.txt -or -name Dockerfile -or -name Makefile -or -name Gemfile -or -name Rakefile \) -not -path '*node_modules*' -exec "$@" {} +
+	if [ $# -ge 2 ] ; then
+		echo "too much arguments" >&2
+		return
+	fi
+
+	md "$1"
+	cd "$1"
 }
 
-function find-hs-exec()
+function cdl()
 {
-	GREP_OPTIONS="--color-always" find . -type f \( -name '*.hs' -or -name '*.yaml' -or -name '*.cabal' -or -name '*.md' \) -exec "$@" {} +
+	cd "$@"
+	l
+}
+
+function lss()
+{
+	dirs=("$@")
+	[ "${#dirs[@]}" -eq 0 ] && dirs="."
+	for d in "${dirs[@]}" ; do
+		d="$(realpath "$d")"
+		ds="$(find "$d" -mindepth 1 -maxdepth 1 -print0)"
+		if [ -n "$ds" ] ; then
+			echo -n "$ds"
+		else
+			echo -n "$d"
+		fi | xargs --null du -shc | sed "s|\btotal\b|$d|g" | sort -hr
+	done
 }
 
 function rex()
@@ -47,3 +84,53 @@ function rnv()
 {
 	rg --files --null $(echo "${@/#/-t }") | xargs --null nvim
 }
+
+function bak()
+{
+	for f in "$@" ; do
+		cp "$f" "${f}.bak$(date +%Y%m%d%H%M%S)"
+	done
+}
+
+#function vif()
+#{
+#	find "$@" -type f -print0 | xargs --null gvim --servername $$
+#}
+#
+#function nvif()
+#{
+#	find "$@" -type f -print0 | xargs --null nvim
+#}
+#
+#function viv_impl()
+#{
+#	prog=$1
+#	shift
+#	$prog $(which $@)
+#}
+#
+#function viv()
+#{
+#	viv_impl "gvim --servnername $$"
+#}
+#
+#function nviv()
+#{
+#	viv_impl nvim
+#}
+#
+#function via()
+#{
+#	gvim --servername $$ --remote-send "<Esc>:argadd $(realpath $@ | xargs)<CR>"
+#}
+#
+#function vifa()
+#{
+#	gvim --servername $$ --remote-send "<Esc>:argadd $(find $(realpath "$@") -type f -exec echo -n {} +)<CR>"
+#}
+#
+#function viva()
+#{
+#	gvim --servername $$ --remote-send "<Esc>:argadd $(which $@)<CR>"
+#}
+
