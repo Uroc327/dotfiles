@@ -1,136 +1,25 @@
 
-export CHROME_FLAGS="--enable-features=UseOzonePlatform --ozone-platform=wayland $CHROME_FLAGS"
+# These seem to cause problems with rendering and stability
+#export QT_QPA_PLATFORM="wayland;xcb"
+#export GDK_BACKEND=wayland
+#export CLUTTER_BACKEND=wayland
+
+export PATH="$PATH:/home/crunge/.local/bin:/home/crunge/bin"
+
+export XDG_DATA_DIRS="$HOME/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share"
+
+export MOZ_ENABLE_WAYLAND=1
+export CHROME_FLAGS="--enable-features=UseOzonePlatform --ozone-platform=wayland --auth-server-whitelist='*.lnt.ei.tum.de' $CHROME_FLAGS"
+export BRAVE_FLAGS="--enable-features=UseOzonePlatform --ozone-platform=wayland --auth-server-whitelist='*.lnt.ei.tum.de' $BRAVE_FLAGS"
 export AUTO_PROXY=http://pac.lrz.de
 
-alias l='ls -CFahlv --color=auto'
-alias .,='cd - > /dev/null'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../../'
-alias ......='cd ../../../../../'
-alias .......='cd ../../../../../../'
-alias ........='cd ../../../../../../../'
-alias .........='cd ../../../../../../../../'
-alias .-l='cd - > /dev/null; l'
-alias ..l='cdl ..'
-alias ...l='cdl ../..'
-alias ....l='cdl ../../..'
-alias .....l='cdl ../../../../'
-alias ......l='cdl ../../../../../'
-alias .......l='cdl ../../../../../../'
-alias ........l='cdl ../../../../../../../'
-alias .........l='cdl ../../../../../../../../'
-alias mf='touch'
-alias md='mkdir -p'
-#alias +x='chmod +x'
-alias c='cat'
-alias g='grep'
-alias p="${PAGER}"
-alias d='diff'
-alias vd='vimdiff'
-alias dm='dmesg'
-alias mk='make'
-alias mkv='make vi'
-alias mkd='make distclean'
-#alias gvi='gvim --servername $$'
-alias gitka='gitk --all'
-alias tiga='tig --all'
+# Hail MATLAB
+export _JAVA_AWT_WM_NONREPARENTING=1
 
-function mx()
-{
-	mf "$@"
-	chmod +x "$@"
-}
+SVDIR=~/service
 
-function mcd()
-{
-	if [ $# -ge 2 ] ; then
-		echo "too much arguments" >&2
-		return
-	fi
+source ~/.ssh/ssh-agent-env >/dev/null
 
-	md "$1"
-	cd "$1"
-}
+alias adsinit='kinit ga42vof'
 
-function cdl()
-{
-	cd "$@"
-	l
-}
-
-function lss()
-{
-	dirs=("$@")
-	[ "${#dirs[@]}" -eq 0 ] && dirs="."
-	for d in "${dirs[@]}" ; do
-		d="$(realpath "$d")"
-		ds="$(find "$d" -mindepth 1 -maxdepth 1 -print0)"
-		if [ -n "$ds" ] ; then
-			echo -n "$ds"
-		else
-			echo -n "$d"
-		fi | xargs --null du -shc | sed "s|\btotal\b|$d|g" | sort -hr
-	done
-}
-
-function rex()
-{
-	rg --files | xargs "$@"
-}
-
-function rnv()
-{
-	rg --files --null $(echo "${@/#/-t }") | xargs --null nvim
-}
-
-function bak()
-{
-	for f in "$@" ; do
-		cp "$f" "${f}.bak$(date +%Y%m%d%H%M%S)"
-	done
-}
-
-#function vif()
-#{
-#	find "$@" -type f -print0 | xargs --null gvim --servername $$
-#}
-#
-#function nvif()
-#{
-#	find "$@" -type f -print0 | xargs --null nvim
-#}
-#
-#function viv_impl()
-#{
-#	prog=$1
-#	shift
-#	$prog $(which $@)
-#}
-#
-#function viv()
-#{
-#	viv_impl "gvim --servnername $$"
-#}
-#
-#function nviv()
-#{
-#	viv_impl nvim
-#}
-#
-#function via()
-#{
-#	gvim --servername $$ --remote-send "<Esc>:argadd $(realpath $@ | xargs)<CR>"
-#}
-#
-#function vifa()
-#{
-#	gvim --servername $$ --remote-send "<Esc>:argadd $(find $(realpath "$@") -type f -exec echo -n {} +)<CR>"
-#}
-#
-#function viva()
-#{
-#	gvim --servername $$ --remote-send "<Esc>:argadd $(which $@)<CR>"
-#}
-
+[ -f "/home/crunge/.ghcup/env" ] && source "/home/crunge/.ghcup/env" # ghcup-env
