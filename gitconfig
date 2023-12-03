@@ -29,6 +29,7 @@
 	rboc = !git rebase origin/$(git symbolic-ref --short HEAD)
 	rbom = rebase origin/master
 	rbod = rebase origin/develop
+	st = status
 	undomrg = reset --merge ORIG_HEAD
 	gcprune = gc --aggressive --prune=now
 	resetwd = reset --hard
@@ -36,6 +37,7 @@
 	root = rev-parse --show-toplevel
 	d = diff
 	g = grep
+	grep-all = "!f() { git rev-list --all | xargs git grep \"$@\"; }; f"
 	children = "!f() { git rev-list --all --not $1^@ --children | grep $(git rev-parse $1); }; f"
 [push]
 	default = tracking
