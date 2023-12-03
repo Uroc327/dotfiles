@@ -91,6 +91,7 @@ call denite#custom#var('grep', {
 " tpope/vim-fugitive
 
 " Building, linting and testing
+" add StyLua, ormolu and hlint
 let g:neomake_open_list = 2
 let test#strategy = 'neomake'
 

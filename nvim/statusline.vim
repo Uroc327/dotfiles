@@ -1,7 +1,7 @@
 " vim: set et sw=2:
 
 function! StatuslineGit()
-  return fugitive#head(7)
+  return FugitiveHead(0, '.')
 endfunction
 
 function! StatuslineModified()

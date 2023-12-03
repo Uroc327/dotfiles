@@ -9,3 +9,5 @@ colorscheme onedark
 " colorscheme seoul256
 "native onedark scheme from oni
 
+autocmd FileType tex color seoul256
+

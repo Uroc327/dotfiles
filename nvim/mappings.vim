@@ -35,17 +35,14 @@ function! <SID>GetVisualSelection()
   return join(lines, "\n")
 endfunction
 
-" cursor stays on screen position
-map <M-Up> <C-y><Up>
-map <M-Down> <C-e><Down>
-imap <M-Up> <Esc><C-y><Up>a
-imap <M-Down> <Esc><C-e><Down>a
-
-" cursor stays on file position
-map <S-Up> <C-y>
-map <S-Down> <C-e>
-imap <S-Up> <Esc><C-y>a
-imap <S-Down> <Esc><C-e>a
+" scrolling
+imap <C-y> <Esc><C-y>a
+imap <C-e> <Esc><C-e>a
+map <C-M-y> <C-y><Up>
+map <C-M-e> <C-e><Down>
+imap <C-M-y> <Esc><C-y><Up>a
+imap <C-M-e> <Esc><C-e><Down>a
+" TODO how to implement smoother zz ?
 
 " deletion should leave yank register alone
 noremap d "_d
@@ -83,13 +80,13 @@ map <silent> <F1> :call <SID>StripTrailingWhitespaces()<CR>
 imap <silent> <F1> <Esc>:call <SID>StripTrailingWhitespaces()<CR>a
 
 " F5 to build/exec
-autocmd FileType tex   noremap  <buffer> <F5> :w<CR>:!make_pdflatex.sh %<CR>
+autocmd FileType tex   noremap  <buffer> <F5> :w<CR>:!latexmk %<CR>
 
 " F6 to REPL
 autocmd Filetype vim   map  <buffer> <F6> :exec ':' . getline('.')<CR>
 autocmd Filetype vim   map  <buffer> <F15> :exec ':' . getline('.')<CR>
 
-" K to get help (default builtin with man or vimhelp)
+" K to get help (keywordprg)
 autocmd FileType c,cpp map  <silent> <buffer> <Leader>K :exe "Man" 3 expand('<cword>')<CR>
 autocmd FileType c,cpp vmap <silent> <buffer> <Leader>K :exe "Man" 3 <SID>GetVisualSelection()<CR>
 autocmd FileType fstab map  <silent> <buffer> K :Man 5 fstab<CR>
@@ -107,10 +104,10 @@ map <silent> <F7> :copen<CR>
 map <silent> <F12> :call <SID>PrintSynStack()<CR>
 
 " headings
-nmap <Leader><Space>= "hY"hpkVr=j
-nmap <Leader><Space>- "hY"hpkVr-j
-nmap <Leader><Leader><Space>= kdd"hY"hpkVr=j
-nmap <Leader><Leader><Space>- kdd"hY"hpkVr-j
+nmap <Leader><Space>= V"hy"hpkVr=j
+nmap <Leader><Space>- V"hy"hpkVr-j
+nmap <Leader><Leader><Space>= kddV"hy"hpkVr=j
+nmap <Leader><Leader><Space>- kddV"hy"hpkVr-j
 
 " diffing
 map <C-d> :diffthis<CR>
@@ -152,5 +149,5 @@ nmap <silent> <Leader><Leader>n :call <SID>BlinkMatch(0.4)<CR>
 nnoremap <silent> * :let windict=winsaveview()<CR>*:call winrestview(windict)<CR>:unlet windict<CR>
 
 " terminal mode
-tnoremap <Esc> <C-\><C-n>
+tnoremap <C-Esc> <C-\><C-n>
 

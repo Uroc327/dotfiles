@@ -41,8 +41,8 @@ let g:NumberToggleTrigger = '<Leader>n'
 autocmd FileType tex,latex,bib map <silent> <buffer> <S-F7> :<C-u>VimtexCompile<CR>
 
 " Shougo/denite.vim
-map <F2> :<C-u>Denite buffer<CR>
 map <S-S> :split<CR><F2>
+map <F2> :<C-u>Denite buffer<CR>
 map <M-s> :rightbelow vsplit<CR><F2>
 map <Leader><F2> :exec 'Denite -start-filter=false -input=' . expand('%:t:r') . ' buffer'<CR>
 map <Leader>g/ :<C-u>Denite grep<CR>
@@ -93,26 +93,33 @@ endfunction
 " Building, linting and testing
 map <F5> :Neomake!<CR>
 
-" Completion
+" Completion (look at VSCode IntelliSense behavior for keybindings)
 
-function! s:check_back_space() abort
+function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1] =~# '\s'
 endfunction
 
 " Use tab for trigger completion with characters ahead and navigate.
+" NOTE: There's always complete item selected by default, you may want to enable
+" no select by `"suggest.noselect": true` in your configuration file.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
-"inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<Tab>" : coc#refresh()
-inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#next(1) : CheckBackspace() ? "\<Tab>" : coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : CheckBackspace() ? "\<C-h>" : "\<Tab>"
+
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+"inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>\<CR>" : "\<C-g>u\<CR>"
 
 " Use <C-Space> to trigger completion.
-inoremap <silent><expr> <C-Space> coc#refresh()
+"inoremap <silent><expr> <C-Space> coc#refresh()
 
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>\<CR>" : "\<C-g>u\<CR>"
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -134,7 +141,8 @@ function! s:show_documentation()
   elseif (coc#rpc#ready())
     call CocActionAsync('doHover')
   else
-    execute '!' . &keywordprg . " " . expand('<cword>')
+    call feedkeys('K', 'in')
+    "execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
 

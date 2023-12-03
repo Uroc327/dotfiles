@@ -3,10 +3,11 @@
 scriptencoding utf-8
 
 set belloff=all
-set clipboard=unnamed
+set clipboard+=unnamedplus
 set completeopt=menuone,noinsert,noselect
 set conceallevel=0
 set display=
+set noexpandtab
 set nofoldenable
 set formatoptions=roqlj
 set grepprg=grep\ -in\ $*\ /dev/null
@@ -15,13 +16,15 @@ set ignorecase smartcase
 set infercase
 set list
 set listchars=tab:· ,trail:·,extends:»,precedes:«,nbsp:~
+set mouse=v
 set ruler
-"set scrolloff=2
+set scrolloff=2
 set shiftwidth=4
 set showcmd
 set sidescroll=1
 set sidescrolloff=2
 set nosmarttab
+set softtabstop=0
 set nostartofline
 set tabstop=4
 set undofile

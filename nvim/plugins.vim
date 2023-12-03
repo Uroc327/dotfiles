@@ -1,5 +1,14 @@
 " vim: set et sw=2:
 
+" For lua/lsp/treesitter config:
+" - :h treesitter
+" - :h lsp
+"
+" interesting additional programs are
+" - adamtabrams/flatnvim
+" - I60R/page
+" - carlocab/tmux-nvr
+
 let s:dein_path = '~/.local/share/nvim_dein'
 exec 'set runtimepath+=' . s:dein_path . '/repos/github.com/Shougo/dein.vim'
 
@@ -39,6 +48,7 @@ if dein#load_state(s:dein_path)
   " szw/vim-maximizer
   " dstein64/vim-startuptime
   " justinmk/vim-dirvish
+  " sk1418/HowMuch calculate tables from visual block selections
 
   " Text objects
   call dein#add('wellle/targets.vim')
@@ -47,7 +57,7 @@ if dein#load_state(s:dein_path)
   " Code movement and editing
   call dein#add('cohama/lexima.vim')
   call dein#add('sbdchd/neoformat')
-  call dein#add('tpope/vim-sleuth')
+  "call dein#add('tpope/vim-sleuth') 2023-07-06 (old version) messes with sw,ts,sts,sta too much
   call dein#add('tpope/vim-unimpaired')
   "call dein#add('vim-abolish') handle multiple versions of the same word
   call dein#add('triglav/vim-visual-increment')
@@ -131,7 +141,7 @@ if dein#load_state(s:dein_path)
   " star search for visual block
   " shift star search for regex-or addition
   " tagbar/outline (using denite? using language server?) :h gO
-  " jump to definition, declaration, reference
+  " jump to definition, declaration, references, imlementation
   " when showing undo tree, dim all non-related buffers
   " toggling relative numbers per buffer
 
