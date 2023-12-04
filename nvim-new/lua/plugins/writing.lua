@@ -10,14 +10,16 @@ return {
 				pattern = "GoyoEnter",
 				nested = true,
 				callback = function()
-					vim.g.goyo_bak_colorscheme = vim.colorscheme()
+					vim.g.goyo_bak_colorscheme = vim.g.colors_name
 					vim.g.goyo_bak_showmode = vim.o.showmode
 					vim.g.goyo_bak_showcmd = vim.o.showcmd
 
 					vim.cmd.colorscheme("seoul256")
+					vim.o.wrap = true
 					vim.o.showmode = false
 					vim.o.showcmd = false
 					vim.cmd("Limelight")
+					require("lualine").hide()
 				end,
 			})
 
@@ -25,7 +27,9 @@ return {
 				pattern = "GoyoLeave",
 				nested = true,
 				callback = function()
+					require("lualine").hide({ unhide = true })
 					vim.cmd("Limelight!")
+					vim.o.wrap = false
 					vim.o.showmode = vim.g.goyo_bak_showmode
 					vim.o.showcmd = vim.g.goyo_bak_showcmd
 					vim.cmd.colorscheme(vim.g.goyo_bak_colorscheme)

@@ -35,6 +35,7 @@ return {
 		ensure_installed = {
 			"bash",
 			"bibtex",
+			"comment",
 			"diff",
 			"haskell",
 			"julia",

@@ -4,9 +4,9 @@
 
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
--- Remap for dealing with word wrap
-vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+-- Remap for dealing with word wrap (the only reason this is disabled is that I don't use word wrapping currently. other than that, there's nothing wrong with it)
+--vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+--vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Leave alone registers
 vim.keymap.set("", "s", '"_s', { remap = false })
@@ -48,13 +48,12 @@ vim.keymap.set("", "<C-M-y>", "<C-y><Up>")
 vim.keymap.set("", "<C-M-e>", "<C-e><Down>")
 
 -- Begin and end
-vim.keymap.set("", "<leader><leader>h", "0", { desc = "Jump to beginning of line" })
-vim.keymap.set("", "<leader>h", "^", { desc = "Jump to beginning of content" })
+vim.keymap.set("", "<leader><leader>h", "^", { desc = "Jump to beginning of content" })
+vim.keymap.set("", "<leader>h", "0", { desc = "Jump to beginning of line" })
 vim.keymap.set("", "<leader>l", "$", { desc = "Jump to end of line" })
 
 -- Save and close (let's try with autosave for now)
---vim.keymap.set("", "<C-s>", ":wa<CR>")
---vim.keymap.set("i", "<C-s>", "<Esc>:wa<CR>a")
+--vim.keymap.set({"", "i"}, "<C-s>", "<Cmd>wa<CR>")
 vim.cmd.cabbrev("qq", "q!")
 
 -- Esc in terminal
@@ -75,8 +74,8 @@ vim.keymap.set("", "<C-l>", '""x""p', { desc = "Move character right" })
 -- Move lines
 vim.keymap.set("n", "<C-k>", "<Cmd>m--<CR>", { desc = "Move line up" })
 vim.keymap.set("n", "<C-j>", "<Cmd>m+<CR>", { desc = "Move line down" })
-vim.keymap.set("x", "<C-k>", "<Cmd>'<,'>m'<-- <Bar> keepjumps normal! gv<CR>", { desc = "Move selection up" })
-vim.keymap.set("x", "<C-j>", "<Cmd>'<,'>m'>+ <Bar> keepjumps normal! gv<CR>", { desc = "Move selection down" })
+vim.keymap.set("x", "<C-k>", ":'<,'>m'<-- <Bar> keepjumps normal! gv<CR>", { desc = "Move selection up" })
+vim.keymap.set("x", "<C-j>", ":'<,'>m'>+ <Bar> keepjumps normal! gv<CR>", { desc = "Move selection down" })
 
 -- Duplicate line
 vim.keymap.set("n", "tk", "<Cmd>t-<CR>", { desc = "Duplicate line up" })

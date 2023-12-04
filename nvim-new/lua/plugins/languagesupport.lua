@@ -29,8 +29,8 @@ return {
 		"epwalsh/obsidian.nvim",
 		lazy = true,
 		event = {
-			"BufReadPre " .. vim.fn.expand("~") .. "projects/obsidian/Tutti/**.md",
-			"BufNewFile " .. vim.fn.expand("~") .. "projects/obsidian/Tutti/**.md",
+			"BufReadPre " .. vim.fn.expand("~") .. "/projects/obsidian/Tutti/**",
+			"BufNewFile " .. vim.fn.expand("~") .. "/projects/obsidian/Tutti/**",
 		},
 		dependencies = {
 			"nvim-lua/plenary.nvim",
@@ -39,6 +39,7 @@ return {
 			"nvim-treesitter/nvim-treesitter",
 		},
 		opts = {
+			disable_frontmatter = true,
 			workspaces = {
 				{
 					name = "Tutti",
@@ -71,7 +72,7 @@ return {
 						},
 
 						hls = {
-							auto_attache = true,
+							auto_attach = true,
 						},
 					}
 				end,

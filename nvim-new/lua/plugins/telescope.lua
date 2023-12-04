@@ -74,6 +74,11 @@ return {
 				},
 			},
 		},
+		pickers = {
+			autocommands = {
+				layout_strategy = "vertical",
+			},
+		},
 		extensions = {
 			file_browser = {
 				hijack_netrw = true,

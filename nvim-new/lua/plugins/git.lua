@@ -12,11 +12,12 @@ return {
 		config = true,
 	},
 
+	-- git integration for buffers
 	{
 		"lewis6991/gitsigns.nvim",
 
 		dependencies = {
-			"nvim-treesitter/nvim-treesitter-textobjects", -- for movement
+			"nvim-treesitter/nvim-treesitter-textobjects", -- for repeatable movement
 		},
 
 		opts = {

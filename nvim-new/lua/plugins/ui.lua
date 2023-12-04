@@ -5,7 +5,7 @@ return {
 		opts = {
 			hlgroup = "CursorColumn",
 			insert_mode = true,
-			disable_file_types = { "tex" },
+			disable_file_types = { "dummyfiletype" },
 		},
 	},
 
@@ -13,11 +13,27 @@ return {
 	{
 		"karb94/neoscroll.nvim",
 		opts = {
-			mappings = { "<C-u>", "<C-d>", "<C-b>", "<C-f>", "zt", "zz", "zb" },
+			--mappings = { "<C-u>", "<C-d>", "<C-b>", "<C-f>", "zt", "zz", "zb" },
 			hide_cursor = false,
 			respect_scrolloff = true,
 			easing_function = "quadratic",
 		},
+		config = function(_, opts)
+			-- defaults adapted from plugin source
+			local t = {}
+			--t["<C-u>"] = { "scroll", { "-vim.wo.scroll", "true", "250" } }
+			--t["<C-d>"] = { "scroll", { "vim.wo.scroll", "true", "250" } }
+			--t["<C-b>"] = { "scroll", { "-vim.api.nvim_win_get_height(0)", "true", "450" } }
+			--t["<C-f>"] = { "scroll", { "vim.api.nvim_win_get_height(0)", "true", "450" } }
+			t["zt"] = { "zt", { "50" } }
+			t["zz"] = { "zz", { "50" } }
+			t["zb"] = { "zb", { "50" } }
+			--t["G"]  = { "G", { "100" } } 2023-12-04 these don't work yet
+			--t["gg"] = { "gg", { "100" } }
+
+			require("neoscroll").setup(opts)
+			require("neoscroll.config").set_mappings(t)
+		end
 	},
 
 	-- provide modal for vim.ui.input and telescope for vim.ui.select
@@ -38,6 +54,9 @@ return {
 		config = function(_, opts)
 			require("onedark").setup(opts)
 			vim.cmd.colorscheme("onedark")
+			vim.api.nvim_set_hl(0, '@text.note', { link = 'Todo' })
+			vim.api.nvim_set_hl(0, '@text.warning', { link = 'Todo' })
+			vim.api.nvim_set_hl(0, '@text.danger', { link = 'Todo' })
 		end,
 	},
 
@@ -47,7 +66,6 @@ return {
 		opts = {
 			options = {
 		--		icons_enabled = false,
-				theme = "onedark",
 		--		component_separators = { left = "|", right = "|" },
 				component_separators = "",
 		--		section_separators = "",
@@ -89,7 +107,12 @@ return {
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
-		config = true,
+		opts = {
+			indent = {
+				char = "▎",
+				tab_char = "▎",
+			}
+		},
 	},
 }
 -- vim: ts=2 sts=2 sw=2 noet
