@@ -5,6 +5,7 @@ return {
 		opts = {
 			hlgroup = "CursorColumn",
 			insert_mode = true,
+			disable_file_types = { "tex" },
 		},
 	},
 
@@ -28,19 +29,28 @@ return {
 	{
 		"navarasu/onedark.nvim",
 		priority = 1000,
-		config = function()
+		opts = {
+			transparent = false,
+			colors = {
+				bg0 = "#262626",
+			},
+		},
+		config = function(_, opts)
+			require("onedark").setup(opts)
 			vim.cmd.colorscheme("onedark")
 		end,
 	},
 
+	-- TODO
 	{
 		"nvim-lualine/lualine.nvim",
 		opts = {
 			options = {
-				icons_enabled = false,
+		--		icons_enabled = false,
 				theme = "onedark",
-				component_separators = "|",
-				section_separators = "",
+		--		component_separators = { left = "|", right = "|" },
+				component_separators = "",
+		--		section_separators = "",
 			},
 			sections = {
 				lualine_a = { "mode" },
@@ -58,10 +68,11 @@ return {
 						newfile_status = true,
 						path = 1,
 					},
+					"location",
 				},
 				lualine_x = { "encoding", "fileformat", "filetype" }, -- TODO tab/space indent warning
-				ulaline_y = { "progress" }, -- TODO searchcount, selectioncound
-				lualine_z = { "location", "filesize" },
+				lualine_y = { "progress" },
+				lualine_z = { "filesize" },
 			},
 			inactive_sections = {
 				lualine_a = {},

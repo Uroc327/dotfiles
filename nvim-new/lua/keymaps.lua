@@ -16,18 +16,24 @@ vim.keymap.set("n", "dd", '"_dd', { remap = false })
 vim.keymap.set("v", "p", "pgvy", { remap = false })
 
 -- Don't jump on * and g*
-vim.keymap.set(
-	"n",
-	"*",
-	"v:count ?  '*' : '<Cmd>keepjumps normal!  *<CR><Cmd>call winrestview(' .. string(winsaveview()) .. ')<CR>'",
-	{ remap = false }
-)
-vim.keymap.set(
-	"n",
-	"g*",
-	"v:count ? 'g*' : '<Cmd>keepjumps normal! g*<CR><Cmd>call winrestview(' .. string(winsaveview()) .. ')<CR>'",
-	{ remap = false }
-)
+vim.keymap.set("n", "*", function()
+	if vim.v.count > 0 then
+		vim.cmd("normal! " .. vim.v.count .. "*")
+	else
+		local bak = vim.fn.winsaveview()
+		vim.cmd("keepjumps normal! *")
+		vim.fn.winrestview(bak)
+	end
+end, { remap = false })
+vim.keymap.set("n", "g*", function()
+	if vim.v.count > 0 then
+		vim.cmd("normal! " .. vim.v.count .. "g*")
+	else
+		local bak = vim.fn.winsaveview()
+		vim.cmd("keepjumps normal! g*")
+		vim.fn.winrestview(bak)
+	end
+end, { remap = false })
 
 -- Reselect after indenting lines
 vim.keymap.set("x", "<", "<gv", { remap = false })
@@ -82,7 +88,8 @@ vim.api.nvim_create_autocmd("FileType", {
 	callback = function()
 		vim.keymap.set("n", "<F5>", "<Cmd>w<CR><Cmd>!latexmk %<CR>")
 	end,
-}, { desc = "Build with latexmk" })
+	desc = "Build with latexmk",
+})
 
 -- F6 to REPL
 -- not implemented yet
@@ -98,7 +105,7 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 
 -- Toggle Numbers
 vim.keymap.set("n", "<leader>n", function()
-	newnum = not vim.o.number
+	local newnum = not vim.o.number
 	vim.o.number = newnum
 	vim.o.relativenumber = newnum
 end, { desc = "Toggle numbers" })

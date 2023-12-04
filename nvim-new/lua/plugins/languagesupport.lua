@@ -57,10 +57,28 @@ return {
 			-- neovim init.lua lsp server
 			{ "folke/neodev.nvim", config = true },
 
-			{ "mrcjkb/haskell-tools.nvim", version = "^3", ft = { "haskell", "lhaskell", "cabal", "cabalproject" } },
+			{
+				"mrcjkb/haskell-tools.nvim",
+				version = "^3",
+				ft = { "haskell", "lhaskell", "cabal", "cabalproject" },
+				config = function()
+					vim.g.haskell_tools = {
+						tools = {
+							codeLens = { autoRefresh = true, },
+							hoogle = { mode = "telescope-local", },
+							hover = { enable = true, },
+							definition = { hoogle_signature_fallback = true, },
+						},
+
+						hls = {
+							auto_attache = true,
+						},
+					}
+				end,
+			},
 		},
 
-		config = function(_, opts)
+		config = function()
 			local lspconfig = require("lspconfig")
 
 			-- gather capabilities
@@ -76,7 +94,7 @@ return {
 					end
 
 					-- TODO check which of these telescope-provided actually yield a benefit over using the vanilla vim.ui version
-					tlscp = require("telescope.builtin")
+					local tlscp = require("telescope.builtin")
 
 					-- Jump to stuff
 					nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
@@ -85,8 +103,8 @@ return {
 					nmap("gr", tlscp.lsp_references, "[G]oto [R]eferences")
 					nmap("<leader>D", tlscp.lsp_type_definitions, "Type [D]efinition")
 
-					nmap("<leader>I", tlscp.lsp_incoming_calls, "[I]ncoming Calls")
-					nmap("<leader>O", tlscp.lsp_outgoing_calls, "[O]outgoing Calls")
+					nmap("<leader>i", tlscp.lsp_incoming_calls, "[I]ncoming Calls")
+					nmap("<leader>o", tlscp.lsp_outgoing_calls, "[O]outgoing Calls")
 
 					-- Find identifies
 					nmap("<leader>ds", tlscp.lsp_document_symbols, "[D]ocument [S]ymbols")
@@ -94,7 +112,7 @@ return {
 
 					-- map K even if 'keywordprg' isn't set
 					nmap("K", vim.lsp.buf.hover, "Hover Documentation")
-					nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
+					nmap("<leader>k", vim.lsp.buf.signature_help, "Signature Documentation")
 
 					-- Refactor
 					nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
@@ -112,8 +130,8 @@ return {
 					--nmap("<leader>wl", function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, "[W]orkspace [L]ist Folders")
 
 					nmap("<leader>f", function()
-						vim.lsp.buf.format({ async = true }, "[F]ormat Buffer")
-					end)
+						vim.lsp.buf.format({ async = true })
+					end, "[F]ormat Buffer")
 				end,
 			})
 		end,

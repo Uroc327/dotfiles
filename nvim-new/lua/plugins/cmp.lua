@@ -4,7 +4,7 @@
 -- <C-Space> or trigger for open compl list
 -- <Enter> for selection from list
 -- <C-Space> for info on list
--- <Tab> for tab completion
+-- <Tab> for tab completion (similar to shell. Tab should select the first best choice immediatly)
 -- all similar to VSCode IntelliSense behavior
 
 -- The nvim-cmp wiki has a couple examples as well
@@ -23,7 +23,7 @@ return {
 		"dcampos/cmp-snippy",
 	},
 
-	config = function(_, opts)
+	config = function()
 		local cmp = require("cmp")
 
 		cmp.setup({

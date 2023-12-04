@@ -1,5 +1,4 @@
 return {
-	-- Highlight, edit, and navigate code
 	"nvim-treesitter/nvim-treesitter",
 
 	dependencies = {
@@ -124,8 +123,8 @@ return {
 		},
 	},
 
-	config = function()
-		vim.defer_fn(function(_, opts)
+	config = function(_, opts)
+		vim.defer_fn(function()
 			require("nvim-treesitter.configs").setup(opts)
 		end, 0)
 	end,

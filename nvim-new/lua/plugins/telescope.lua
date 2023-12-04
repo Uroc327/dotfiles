@@ -85,6 +85,9 @@ return {
 					layout_strategy = "horizontal",
 				},
 			},
+			undo = {
+				diff_context_lines = 8,
+			},
 		},
 	},
 
@@ -97,6 +100,8 @@ return {
 		telescope.load_extension("heading")
 		telescope.load_extension("hoogle")
 		telescope.load_extension("undo")
+
+		vim.cmd.cabbrev("Rg", "Telescope live_grep")
 
 		-- Function to find the git root directory based on the current buffer's path
 		local function find_git_root()

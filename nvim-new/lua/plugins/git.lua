@@ -41,7 +41,7 @@ return {
 						return "]c"
 					end
 					vim.schedule(function()
-						gs.next_hunk_repeat()
+						next_hunk_repeat()
 					end)
 					return "<Ignore>"
 				end, { expr = true, buffer = bufnr, desc = "Jump to next hunk" })
@@ -50,7 +50,7 @@ return {
 						return "[c"
 					end
 					vim.schedule(function()
-						gs.prev_hunk_repeat()
+						prev_hunk_repeat()
 					end)
 					return "<Ignore>"
 				end, { expr = true, buffer = bufnr, desc = "Jump to previous hunk" })

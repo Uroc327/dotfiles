@@ -1,4 +1,6 @@
 return {
+	"triglav/vim-visual-increment",
+
 	-- auto-close parens
 	"cohama/lexima.vim",
 
@@ -12,16 +14,8 @@ return {
 	{
 		"bkad/CamelCaseMotion",
 		config = function()
-			vim.call("camelcasemotion#CreateMotionMappings", "<Leader>")
+			vim.fn["camelcasemotion#CreateMotionMappings"]("<Leader>")
 		end,
-	},
-
-	{
-		"triglav/vim-visual-increment",
-		keys = {
-			{ "<C-a>", "<Plug>VisualIncrement <Bar> gv", mode = "v" },
-			{ "<C-x>", "<Plug>VisualDecrement <Bar> gv", mode = "v" },
-		},
 	},
 }
 

@@ -4,10 +4,10 @@
 -- - read and configure cmp
 -- - read and configure neogit/gitsigns (I guess all the staging can be done with either...)
 
--- Notes and ideas:
+-- TODO Notes and ideas:
 -- - star search for visual block
 -- - shift star search for regex-or addition
--- - tagbar/outline (using denite? using language server?) :h gO
+-- - tagbar/outline (using denite? using language server? using treesitter) :h gO
 -- - jump to definition, declaration, references, imlementation
 -- - when showing undo tree, dim all non-related buffers
 -- - toggling relative numbers per buffer
@@ -51,8 +51,8 @@ require("lazy").setup("plugins", {
 	},
 })
 
-load("options")
-load("keymaps")
-load("autocmds")
+require("options")
+require("keymaps")
+require("autocmds")
 
 -- vim: ts=2 sts=2 sw=2 noet

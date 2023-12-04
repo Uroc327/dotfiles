@@ -19,7 +19,7 @@ return {
 	{
 		"folke/which-key.nvim",
 		config = function(_, opts)
-			which_key = require("which-key")
+			local which_key = require("which-key")
 			which_key.setup(opts)
 			which_key.register({
 				["<leader>c"] = { name = "[C]ode", _ = "which_key_ignore" },
